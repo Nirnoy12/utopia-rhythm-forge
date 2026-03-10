@@ -1,0 +1,147 @@
+.about-section {
+  width: 100%;
+  background: transparent;
+  padding: 80px 24px;
+  margin-top: 48px;
+  position: relative;
+}
+
+.about-container {
+  max-width: 1280px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* IMAGE SIDE */
+
+.about-image {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+}
+
+/* Glow aura behind artist */
+.about-image::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255,120,0,0.35), transparent 70%);
+  filter: blur(90px);
+  z-index: 0;
+}
+
+/* Artist image */
+.about-image img {
+  width: 100%;
+  max-width: 600px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+
+  animation: floatArtist 6s ease-in-out infinite;
+
+  transition: 
+    transform 0.5s ease,
+    filter 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+/* Floating animation */
+
+@keyframes floatArtist {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-40px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
+}
+
+/* Hover effect */
+
+.about-image img:hover {
+  transform: scale(1.06) rotate(-1deg);
+  filter: drop-shadow(0 25px 40px rgba(245, 113, 6, 0.55));
+}
+
+/* CONTENT SIDE */
+
+.about-content {
+  width: 100%;
+  background-color: transparent;
+}
+
+.about-content h2 {
+  font-size: 58px;
+  font-family: serif;
+  line-height: 1.2;
+}
+
+.about-content p {
+  margin-top: 24px;
+  color: #666;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* TEXT GRADIENTS */
+
+.gradient-orange {
+  font-style: italic;
+  background: linear-gradient(90deg, #f97316, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-purple {
+  font-style: italic;
+  background: linear-gradient(90deg, #9333ea, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+
+  .about-image img {
+    max-width: 500px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image {
+    justify-content: center;
+  }
+
+  .about-image::before {
+    width: 320px;
+    height: 320px;
+  }
+
+  .about-content h2 {
+    font-size: 36px;
+  }
+
+}

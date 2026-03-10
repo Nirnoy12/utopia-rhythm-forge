@@ -5,6 +5,7 @@ import heroNeon from "@/assets/hero-neon.jpg";
 import MagneticButton from "@/components/MagneticButton";
 import StaggerText from "@/components/StaggerText";
 import ScrollReveal from "@/components/ScrollReveal";
+import Artist from "../components/Artist";
 import "../components/css/home.css";
 import img1 from "../assets/img7.png";
 import sponsor1 from "../assets/gdgc.png";
@@ -12,6 +13,8 @@ import sponsor2 from "../assets/mckv.png";
 import sponsor3 from "../assets/barca.png";
 import headdown from "../assets/head.png";
 import headup from "../assets/headup.png";
+
+
 const breathe = {
   scale: [1, 1.03, 1],
   transition: { duration: 10, repeat: Infinity, ease: "easeInOut" },
@@ -156,6 +159,11 @@ Established in 1999, MCKV Institute of Engineering stands as a beacon of excelle
           <img src={img1} alt="example" />
         </div>
       </div>
+
+      {/* Artists Section */}
+
+      <Artist />
+        
 
       {/* Sponsors Section */}
       <div>

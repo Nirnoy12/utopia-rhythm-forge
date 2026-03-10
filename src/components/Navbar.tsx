@@ -6,12 +6,13 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "Manifesto" },
-  { to: "/gallery", label: "Gallery" },
+  { to: "/about", label: "Event" },
   { to: "/schedule", label: "Schedule" },
-  { to: "/day-1", label: "Day 01" },
-  { to: "/day-2", label: "Day 02" },
-  { to: "/architects", label: "Architects" },
+  { to: "/gallery", label: "Gallery" },
+  
+  { to: "/day-1", label: "Commitee" },
+  { to: "/day-2", label: "About" },
+  { to: "/architects", label: "Contacts" },
 ];
 
 const Navbar = () => {
