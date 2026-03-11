@@ -24,6 +24,8 @@ const Day2 = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  // 1. ADDED REF FOR THE TITLE
+  const titleRef = useRef<HTMLDivElement>(null); 
 
   useEffect(() => {
     const container = containerRef.current;
@@ -33,11 +35,8 @@ const Day2 = () => {
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    // =====================================================================
-    // ⏱️ TIMING CONTROLS (HOW MANY FRAMES IN YOUR VIDEO)
-    // =====================================================================
-    const totalFrames = 192; // CHANGE THIS to your exact video frame count
-    const framesPerPageTurn = 60; // CHANGE THIS: How many frames it takes to turn a page
+    const totalFrames = 192; 
+    const framesPerPageTurn = 80; 
     
     const currentFrame = (index: number) => 
       `/frames2/ezgif-frame-${String(index + 1).padStart(3, '0')}.jpg`;
@@ -91,24 +90,16 @@ const Day2 = () => {
     const ctx = gsap.context(() => {
       const totalPages = Math.ceil(artistsDay2.length / 2);
 
-      // =====================================================================
-      // 📍 POSITION CONTROLS (WHERE THE CARDS SIT ON THE BOOK)
-      // =====================================================================
       cardsRef.current.forEach((card, index) => {
         if (!card) return;
         const isLeftPage = index % 2 === 0;
         
-        // I have pre-calculated these based on your specific uploaded image!
         gsap.set(card, {
           xPercent: -50,
           yPercent: -50,
-          // CHANGE 'left' to move card horizontally (Left/Right)
           left: isLeftPage ? "38%" : "62%", 
-          // CHANGE 'top' to move card vertically (Up/Down)
           top: "48%",                       
-          // CHANGE 'scale' to make the resting polaroid bigger or smaller
           scale: 0.7, 
-          // CHANGE 'rotation' to match the angle of the book pages
           rotation: isLeftPage ? -4 : -2,   
           autoAlpha: 0,                     
           transformPerspective: 1000,
@@ -124,6 +115,16 @@ const Day2 = () => {
           pin: true,
         }
       });
+
+      // 2. FADE OUT TITLE IMMEDIATELY WHEN SCROLL STARTS
+      // The '0' at the end tells GSAP to place this exactly at the beginning of the timeline
+      if (titleRef.current) {
+        masterTl.to(titleRef.current, {
+          autoAlpha: 0,
+          duration: 0.5,
+          ease: "power2.out"
+        }, 0); 
+      }
 
       for (let page = 0; page < totalPages; page++) {
         const leftCardIndex = page * 2;
@@ -150,12 +151,12 @@ const Day2 = () => {
             ease: "power2.inOut"
           })
           .to({}, { duration: 1 }) 
-          // PUT LEFT CARD DOWN (Matches the resting position above)
+          // PUT LEFT CARD DOWN
           .to(leftCard, {
-            left: "38%", // <--- Must match the starting 'left'
-            top: "48%",  // <--- Must match the starting 'top'
-            scale: 0.7, // <--- Must match the starting 'scale'
-            rotation: -4, // <--- Must match the starting 'rotation'
+            left: "38%", 
+            top: "48%",  
+            scale: 0.7, 
+            rotation: -4, 
             rotationX: 0,
             zIndex: 10,
             boxShadow: "0px 5px 15px rgba(0,0,0,0.2)", 
@@ -178,12 +179,12 @@ const Day2 = () => {
             ease: "power2.inOut"
           })
           .to({}, { duration: 1 })
-          // PUT RIGHT CARD DOWN (Matches the resting position above)
+          // PUT RIGHT CARD DOWN
           .to(rightCard, {
-            left: "62%", // <--- Must match the starting 'left'
-            top: "48%",  // <--- Must match the starting 'top'
-            scale: 0.7, // <--- Must match the starting 'scale'
-            rotation: -2, // <--- Must match the starting 'rotation'
+            left: "62%", 
+            top: "48%",  
+            scale: 0.7, 
+            rotation: -2, 
             rotationX: 0,
             zIndex: 10,
             boxShadow: "0px 5px 15px rgba(0,0,0,0.2)",
@@ -199,21 +200,13 @@ const Day2 = () => {
             duration: 1
           }, "+=0.5"); 
 
-          // =====================================================================
-          // 🎥 FRAME TIMING CONTROL (WHEN DOES THE BOOK TURN?)
-          // =====================================================================
           masterTl.to(sequence, {
-            // This tells GSAP to scrub the video to a specific frame.
-            // If page 1 turns at frame 60, it scrubs to frame 60.
-            // If you want it to scrub to a specific frame manually, you can 
-            // replace `(page + 1) * framesPerPageTurn` with a hardcoded number like `75`
             frame: (page + 1) * framesPerPageTurn, 
             duration: 4, 
             ease: "power2.inOut",
             onUpdate: () => renderFrame(sequence.frame)
           }, "<"); 
 
-          // Buffer to let the page settle before showing new cards
           masterTl.to({}, { duration: 0.1 });
         }
       }
@@ -234,10 +227,13 @@ const Day2 = () => {
         <canvas ref={canvasRef} className="opacity-100" />
       </div>
 
-      {/* FIXED UI OVERLAY */}
-      <div className="absolute top-12 left-12 z-50 pointer-events-none">
-        <h1 className="text-sm font-sans tracking-[0.5em] text-white/80 drop-shadow-md uppercase mb-2">The Roster</h1>
-        <p className="text-4xl font-serif italic text-white drop-shadow-lg">Day 02</p>
+      {/* 3. ATTACHED REF TO THE TITLE DIV */}
+      <div 
+        ref={titleRef} 
+        className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none flex flex-col items-center text-center mix-blend-multiply opacity-70"
+      >
+        <h1 className="text-sm md:text-lg font-sans tracking-[0.6em] text-[#2C2A25] uppercase mb-4">The Roster</h1>
+        <p className="text-5xl md:text-7xl font-serif italic text-[#2C2A25]">Day 02</p>
       </div>
 
       {/* POLAROID CARDS OVERLAY */}

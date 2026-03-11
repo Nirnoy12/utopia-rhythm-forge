@@ -2,16 +2,21 @@ import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { SCHEDULE_EVENTS } from "@/data/constants";
+
+import ganesh from "../assets/ganesh.jpg";
+import lunch from "../assets/lunch.jpg";
+import cultural2 from "../assets/cultural2.jpg";
+import cultural3 from "../assets/cultural3.jpg";
+import main_event from "../assets/main_event.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const events = [
-  { time: "09:00 AM", title: "Opening Ceremony", img: "/src/assets/ganesh.jpg" },
-  { time: "10:30 AM", title: "Cultural Performance", img: "/src/assets/cultural2.jpg" },
-  { time: "01:00 PM", title: "Lunch Break", img: "/src/assets/lunch.jpg" },
-  { time: "02:30 PM", title: "Cultural Programme", img: "/src/assets/cultural3.jpg" },
-  { time: "05:00 PM", title: "Main Event", img: "/src/assets/main_event.jpg" }
+const SCHEDULE_EVENTS = [
+  { day: "DAY 01", time: "09:00 AM", title: "Opening Ceremony", artist: "Various Artists", image: ganesh },
+  { day: "DAY 01", time: "10:30 AM", title: "Cultural Performance", artist: "Local Talents", image: cultural2 },
+  { day: "DAY 01", time: "01:00 PM", title: "Lunch Break", artist: "Food Court", image: lunch},
+  { day: "DAY 02", time: "02:30 PM", title: "Cultural Programme", artist: "Guest Performers", image: cultural3 },
+  { day: "DAY 02", time: "05:00 PM", title: "Main Event", artist: "Headliner", image: main_event}
 ];
 
 export default function ScheduleSection() {
@@ -37,16 +42,21 @@ export default function ScheduleSection() {
       const floatingImage = floatingImageRef.current;
 
       if (rightCol && dot) {
-        gsap.to(dot, {
-          yPercent: 100,
-          ease: "none",
-          scrollTrigger: {
-            trigger: rightCol,
-            start: "top center",
-            end: "bottom center",
-            scrub: 1,
-          },
-        });
+        gsap.fromTo(dot, 
+          { top: "0%" }, 
+          {
+            top: "100%",
+            ease: "none",
+            scrollTrigger: {
+              trigger: rightCol,
+              start: "top center",
+              end: "bottom center",
+              // FIX 1: Changed from scrub: true to scrub: 1.5 
+              // This adds buttery smooth momentum to the dot
+              scrub: 1.5, 
+            },
+          }
+        );
       }
 
       if (daySwitchEl && container && leftLabel) {
@@ -89,7 +99,7 @@ export default function ScheduleSection() {
           },
           onLeaveBack: () => {
             gsap.to(container, {
-              backgroundColor: "hsl(var(--primary) / 0.1)", // Roots bg tint
+              backgroundColor: "hsl(var(--primary) / 0.1)", 
               duration: 1.4,
               ease: "power3.inOut",
             });
@@ -217,17 +227,20 @@ export default function ScheduleSection() {
         {/* Right scrollable timeline */}
         <div
           ref={rightColumnRef}
-          className="relative lg:w-3/5 w-full px-6 py-20 lg:px-12 lg:py-24"
+          // Added more padding-bottom to ensure enough scroll room at the very end
+          className="relative lg:w-3/5 w-full px-6 py-20 lg:px-12 lg:pb-48 lg:pt-24"
         >
           {/* Central vertical line + progress dot (desktop) */}
           <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-foreground/10 lg:block">
             <div
               ref={progressDotRef}
-              className="absolute left-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold shadow-[0_0_25px_rgba(var(--gold)_0.9)]"
+              className="absolute left-1/2 top-0 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold shadow-[0_0_25px_rgba(var(--gold)_0.9)]"
             />
           </div>
 
-          <div className="space-y-16 lg:space-y-20">
+          {/* FIX 2: Increased vertical spacing drastically (space-y-32 and lg:space-y-48) 
+              to stretch the timeline out, making scrolling slower and more deliberate. */}
+          <div className="space-y-32 lg:space-y-48">
             {SCHEDULE_EVENTS.map((event, index) => {
               const isDay2 = event.day === "DAY 02";
               const day2FirstIndex = SCHEDULE_EVENTS.findIndex(
@@ -248,7 +261,7 @@ export default function ScheduleSection() {
                   {isDaySwitchIndex && (
                     <div
                       ref={daySwitchRef}
-                      className="pointer-events-none absolute -top-24 h-24 w-full"
+                      className="pointer-events-none absolute -top-32 h-32 w-full"
                     />
                   )}
 
