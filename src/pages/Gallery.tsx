@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import TiltImage from "@/components/TiltImage";
 
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -12,25 +13,52 @@ const images = [
   { src: gallery3, alt: "Image 3" },
 ];
 
+const getSevenImages = () => {
+  const arr = [];
+  for (let i = 0; i < 7; i++) {
+    arr.push(images[i % images.length]);
+  }
+  return arr;
+};
+
 const Gallery = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [offset, setOffset] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
   });
 
-  const row1 = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
-  const row2 = useTransform(scrollYProgress, [0, 1], ["-60%", "0%"]);
-  const row3 = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
+  const row1 = useTransform(scrollYProgress, [0, 0.33], ["0%", "-60%"]);
+  const row2 = useTransform(scrollYProgress, [0.33, 0.66], ["60%", "0%"]);
+  const row3 = useTransform(scrollYProgress, [0.66, 1], ["0%", "-60%"]);
+
+  const moveLeft = () => {
+    setOffset((prev) => prev + 200);
+  };
+
+  const moveRight = () => {
+    setOffset((prev) => prev - 200);
+  };
 
   const renderRow = (xMotion: any) => (
-    <motion.div style={{ x: xMotion }} className="flex gap-8">
-      {[...images, ...images, ...images].map((img, i) => (
-        <div key={i} className="flex-shrink-0 w-[420px] h-[280px]">
+    <motion.div
+      style={{
+        x: xMotion,
+        translateX: offset,
+      }}
+      className="flex gap-3 sm:gap-4 lg:gap-6 justify-center"
+    >
+      {getSevenImages().map((img, i) => (
+        <div
+          key={i}
+          className="flex-shrink-0 w-32 h-20 sm:w-40 sm:h-24 md:w-52 md:h-32 lg:w-64 lg:h-40"
+        >
           <TiltImage
             src={img.src}
             alt={img.alt}
-            className="w-full h-full object-cover rounded-md"
+            className="w-full h-full object-cover rounded-xl"
           />
         </div>
       ))}
@@ -41,8 +69,10 @@ const Gallery = () => {
     <div className="bg-background pt-24 overflow-hidden">
 
       {/* Title */}
-      <section className="px-20 py-20 text-center">
-        <h1 className="text-[9vw] font-serif font-black">Gallery</h1>
+      <section className="px-4 sm:px-10 lg:px-20 py-16 lg:py-20 text-center">
+        <h1 className="text-5xl sm:text-6xl md:text-[9vw] font-serif font-black">
+          Gallery
+        </h1>
 
         <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto">
           A visual journey through moments, culture, and creativity — where every
@@ -50,27 +80,41 @@ const Gallery = () => {
         </p>
       </section>
 
-      {/* Scroll Gallery */}
-      <section ref={containerRef} className="relative h-[250vh]">
+      {/* Scroll Section */}
+      <section ref={containerRef} className="relative h-[300vh]">
 
-        <div className="sticky top-0 h-screen flex flex-col justify-center gap-20 overflow-hidden px-20">
+        <div className="sticky top-0 h-screen flex flex-col justify-center gap-8 sm:gap-10 lg:gap-12 overflow-hidden px-4 sm:px-10 lg:px-20">
 
-          {/* Row 1 */}
           {renderRow(row1)}
-
-          {/* Row 2 */}
           {renderRow(row2)}
-
-          {/* Row 3 */}
           {renderRow(row3)}
+
+        </div>
+
+        {/* Left Right Buttons */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-6 z-20">
+
+          <button
+            onClick={moveLeft}
+            className="w-12 h-12 border border-white/40 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition"
+          >
+            <ChevronLeft size={22} />
+          </button>
+
+          <button
+            onClick={moveRight}
+            className="w-12 h-12 border border-white/40 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition"
+          >
+            <ChevronRight size={22} />
+          </button>
 
         </div>
 
       </section>
 
-      {/* Bottom Quote */}
-      <section className="py-24 text-center px-20">
-        <p className="text-3xl font-serif italic text-muted-foreground">
+      {/* Quote */}
+      <section className="py-20 text-center px-4 sm:px-10 lg:px-20">
+        <p className="text-2xl sm:text-3xl font-serif italic text-muted-foreground">
           “Moments fade, but the stories they create live forever.”
         </p>
       </section>

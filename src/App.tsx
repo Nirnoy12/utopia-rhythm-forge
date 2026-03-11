@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
-import Navigation from "@/components/Navigation";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
@@ -29,7 +28,6 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Navigation />
           <CustomCursor />
           <Navbar />
           <Routes>
