@@ -5,13 +5,18 @@ import heroNeon from "@/assets/hero-neon.jpg";
 import MagneticButton from "@/components/MagneticButton";
 import StaggerText from "@/components/StaggerText";
 import ScrollReveal from "@/components/ScrollReveal";
+import Artist from "../components/Artist";
+import Homecontact from "../components/Homecontact";
+import Culture from "../components/Culture";
+import Sponsor from "../components/Sponsor";
+import Sponsorx from "../components/Sponsorx";
+
 import "../components/css/home.css";
-import img1 from "../assets/img7.png";
-import sponsor1 from "../assets/gdgc.png";
-import sponsor2 from "../assets/mckv.png";  
-import sponsor3 from "../assets/barca.png";
+import img1 from "../assets/img7.png"; 
 import headdown from "../assets/head.png";
 import headup from "../assets/headup.png";
+
+
 const breathe = {
   scale: [1, 1.03, 1],
   transition: { duration: 10, repeat: Infinity, ease: "easeInOut" },
@@ -157,72 +162,20 @@ Established in 1999, MCKV Institute of Engineering stands as a beacon of excelle
         </div>
       </div>
 
+      {/* Artists Section */}
+
+      <Artist />
+
+      {/* Homen Contacts Section */}
+
+      <Culture />
+      <br/>
+
+ 
+        
+
       {/* Sponsors Section */}
-      <div>
-        <section className="pattern-section">
-                <div className="pattern-track">
-                  <div className="pattern-row">
-                    <img src={headup} alt="head down" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                  </div>
-
-                  <div className="pattern-row">
-                    <img src={headup} alt="head down" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                    <img src={headup} alt="pattern" />
-                  </div>
-                </div>
-              </section>
-        <section className="py-10 px-10 md:px-20 relative">
-          <div className="max-w-6xl mx-auto flex justify-center">
-            <ScrollReveal>
-              <h2 className="text-[8vw] md:text-[3vw] font-serif leading-[0.95] tracking-[-0.02em] text-center mb-0">
-                Our Esteemed Event<span className="text-primary italic">Sponsors</span>.
-              </h2>
-            </ScrollReveal>
-          </div>
-        </section>
-          <section className="creative-section">
-            <div className="content">
-              <div className="sponsor-logos"><img src={sponsor1} alt="Sponsor 1" /></div>
-              <div className="sponsor-logos"><img src={sponsor2} alt="Sponsor 2" /></div>
-              <div className="sponsor-logos"><img src={sponsor3} alt="Sponsor 3" /></div>
-
-
-            </div>
-          </section>
-
-              <section className="pattern-section">
-                <div className="pattern-track">
-                  <div className="pattern-row">
-                    <img src={headdown} alt="head down" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                  </div>
-
-                  <div className="pattern-row">
-                    <img src={headdown} alt="head down" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                    <img src={headdown} alt="pattern" />
-                  </div>
-                </div>
-              </section>
-
-
-      </div>
+      <Sponsor />
 
 
 
@@ -282,6 +235,11 @@ Established in 1999, MCKV Institute of Engineering stands as a beacon of excelle
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Homen Contacts Section */}
+
+      <Homecontact />
+      <br/>
 
       {/* Footer */}
       <footer className="py-16 px-6 border-t border-border">
