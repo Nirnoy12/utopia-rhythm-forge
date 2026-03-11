@@ -9,7 +9,6 @@ import Artist from "../components/Artist";
 import Homecontact from "../components/Homecontact";
 import Culture from "../components/Culture";
 import Sponsor from "../components/Sponsor";
-import Sponsorx from "../components/Sponsorx";
 
 import "../components/css/home.css";
 import img1 from "../assets/img7.png"; 

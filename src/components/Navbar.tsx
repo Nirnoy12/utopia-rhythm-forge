@@ -8,9 +8,11 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "Event" },
   { to: "/schedule", label: "Schedule" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/team", label: "Team" },
   { to: "/day-1", label: "Day 01" },
   { to: "/day-2", label: "Day 02" },
-  { to: "/architects", label: "Architects" },
+  { to: "/architects", label: "Contact US" },
 ];
 
 const Navbar = () => {
