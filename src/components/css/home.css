@@ -1,49 +1,470 @@
-.ab{
+.ab {
     width: 90%;
     height: 600px;
     /* border: 2px solid black; */
-    margin : auto;
-    margin-top: 100px;   
+    margin: auto;
+    margin-top: 100px;
     display: flex;
 }
 
-.ab1{
+.ab1 {
     width: 60%;
     height: 100%;
 }
 
-.ab2{
+.ab2 {
     width: 40%;
     height: 100%;
     display: flex;
-align-items: center;
-justify-content: center;}   
+    align-items: center;
+    justify-content: center;
+}
 
-.ab2 img{
+.ab2 img {
     width: 100%;
     height: 100%;
     animation: float 3s ease-in-out infinite;
 }
 
-@keyframes float{
-    0%{
+@keyframes float {
+    0% {
         transform: translateY(0px);
     }
-    50%{
+    50% {
         transform: translateY(-15px);
     }
-    100%{
+    100% {
         transform: translateY(0px);
     }
 }
 
+/* ============================================================================
+   MOBILE RESPONSIVENESS FIXES
+   - Only affects mobile/tablet viewports (max-width: 768px)
+   - Desktop layout remains completely unchanged
+   ============================================================================ */
 
+@media (max-width: 768px) {
+    /* ===== HIDE DESKTOP DECORATIVE ELEMENTS ===== */
+    /* Hide left decorative column (alpona mandala + vertical strip) on mobile */
+    .desktop-decorative-column {
+        display: none !important;
+    }
 
+    /* ===== PREVENT HORIZONTAL OVERFLOW ===== */
+    body,
+    html {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        position: relative;
+    }
 
+    * {
+        max-width: 100vw;
+    }
 
+    /* ===== FIX MAIN LAYOUT CONTAINER ===== */
+    main {
+        position: relative;
+        z-index: 1;
+        overflow-x: hidden !important;
+        width: 100%;
+    }
 
+    /* ===== FIX .AB SECTION TO STACK VERTICALLY ===== */
+    /* Fix .ab section to stack vertically on mobile */
+    .ab {
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        flex-direction: column !important;
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+        padding: 0 16px !important;
+    }
 
+    .ab1 {
+        width: 100% !important;
+        height: auto !important;
+        padding: 12px 0 !important;
+    }
 
+    .ab2 {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 200px !important;
+        padding: 12px 0 !important;
+    }
 
+    .ab2 img {
+        max-height: 350px !important;
+        max-width: 100% !important;
+        width: auto !important;
+        object-fit: contain !important;
+    }
 
+    /* ===== FIX HERO SECTION ===== */
+    .preloader-overlay {
+        padding: 16px 12px !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
 
+    /* Ensure hero images don't overflow */
+    .preloader-overlay img {
+        max-width: 100vw !important;
+        object-fit: cover !important;
+    }
+
+    /* ===== FIX HEADER/NAVBAR ===== */
+    nav {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .styles-module-scss-module__EhpkfW__mobileHeader,
+    .styles-module-scss-module__EhpkfW__header {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    /* ===== FIX BUTTONS ===== */
+    button[data-variant="theatrical"] {
+        padding: 12px 24px !important;
+        font-size: 11px !important;
+        height: auto !important;
+        min-height: 44px !important;
+        white-space: nowrap !important;
+    }
+
+    /* ===== FIX TEXT ELEMENTS ===== */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto;
+    }
+
+    /* Fix large viewport-based text */
+    h1[class*="text-["],
+    [class*="text-[12vw]"],
+    [class*="text-[10vw]"],
+    [class*="text-[11vw]"] {
+        font-size: clamp(2rem, 10vw, 3.5rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    /* ===== FIX IMAGES ===== */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* ===== FIX SECTIONS ===== */
+    /* Ensure proper spacing for all sections on mobile */
+    main > div[id] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+    }
+
+    section {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Ensure proper vertical rhythm */
+    #about,
+    #featured-artists,
+    #off-stage-events,
+    #sponsors,
+    #contact {
+        scroll-margin-top: 70px;
+        margin-bottom: 16px !important;
+    }
+
+    /* ===== FIX FOOTER ===== */
+    footer {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        overflow-x: hidden !important;
+    }
+
+    footer img {
+        max-width: 100vw !important;
+    }
+
+    /* ===== FIX CONTAINERS ===== */
+    .container,
+    .max-w-7xl,
+    .max-w-6xl,
+    .max-w-5xl,
+    .max-w-4xl {
+        max-width: 100% !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* ===== FIX ANY FIXED POSITION ELEMENTS ===== */
+    /* Hide any other decorative fixed elements that might interfere */
+    .fixed[style*="zIndex: 10"]:not(nav) {
+        display: none !important;
+    }
+
+    /* ===== ENSURE PROPER STACKING ===== */
+    .relative {
+        overflow-x: hidden;
+    }
+
+    /* ===== FIX GRID LAYOUTS ===== */
+    [class*="grid-cols-"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ===== PREVENT ANY ELEMENT FROM CAUSING OVERFLOW ===== */
+    .absolute,
+    .fixed {
+        max-width: 100vw;
+    }
+}
+
+/* ===== TABLET ADJUSTMENTS (768px - 1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .ab {
+        width: 95%;
+        padding: 0 20px;
+    }
+
+    .ab1,
+    .ab2 {
+        padding: 0 15px;
+    }
+}
+
+/* ===== SECTION 1: HERO IMAGE FIXES ===== */
+@media (max-width: 768px) {
+    /* Fix hero section to remove empty space */
+    #hero,
+    .preloader-overlay {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 5vh !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Position hero text as overlay at top */
+    #hero > div:last-child {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        gap: 0.5rem !important;
+    }
+
+    /* Remove the empty logo container space */
+    #hero .aspect-square {
+        display: none !important;
+    }
+
+    /* Move title upward to overlay position */
+    #hero h1 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        font-size: clamp(2.5rem, 12vw, 4rem) !important;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Hero image positioning for mobile */
+    #hero .absolute.inset-0 {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    #hero .absolute.inset-0 img {
+        object-position: center center !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Add decorative fusion pattern at bottom */
+    #hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background: linear-gradient(
+            to top,
+            rgba(245, 239, 230, 0.95) 0%,
+            transparent 100%
+        );
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    /* Add tech-cultural fusion pattern */
+    #hero::before {
+        content: "";
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 300px;
+        height: 80px;
+        background-image:
+            radial-gradient(
+                circle at 50% 50%,
+                rgba(182, 74, 43, 0.15) 0%,
+                transparent 50%
+            ),
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(182, 74, 43, 0.08) 2px,
+                rgba(182, 74, 43, 0.08) 4px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(182, 74, 43, 0.08) 2px,
+                rgba(182, 74, 43, 0.08) 4px
+            );
+        border-radius: 50%;
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: 6;
+    }
+
+    /* Reduce gap between hero and first section */
+    #hero + div {
+        margin-top: 0 !important;
+    }
+
+    /* Tighten vertical rhythm between sections */
+    main > div[id] + div[id] {
+        margin-top: -8px !important;
+    }
+}
+
+/* ===== SECTION 2: DESCRIPTION TEXT (.ab) FIXES ===== */
+@media (max-width: 768px) {
+    /* Center align and resize description text */
+    .ab1 p {
+        text-align: center !important;
+        font-size: 1.125rem !important; /* Reduced from text-2xl to text-lg */
+        line-height: 1.7 !important;
+        padding: 0 1.5rem !important;
+        max-width: 100% !important;
+    }
+
+    /* Ensure proper padding for .ab1 container */
+    .ab1 {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1.5rem 1rem !important;
+    }
+
+    /* Adjust image container spacing */
+    .ab2 {
+        padding: 1rem !important;
+        margin-top: 1rem !important;
+    }
+}
+
+/* ===== SECTION 3: FOOTER LAYOUT FIXES ===== */
+@media (max-width: 768px) {
+    /* Prevent background image overlap with text */
+    footer .absolute.inset-0 {
+        opacity: 0.15 !important; /* Reduce opacity for better text readability */
+    }
+
+    footer .absolute.inset-0 img {
+        object-position: center top !important;
+        filter: blur(
+            2px
+        ) !important; /* Slight blur to prevent visual interference */
+    }
+
+    /* Add background overlay for text readability */
+    footer .container {
+        position: relative !important;
+        background: linear-gradient(
+            to bottom,
+            rgba(66, 63, 61, 0.85) 0%,
+            rgba(66, 63, 61, 0.95) 30%,
+            rgba(66, 63, 61, 0.95) 100%
+        ) !important;
+        padding: 2rem 1rem !important;
+        border-radius: 0 !important;
+    }
+
+    /* Improve footer grid spacing */
+    footer .grid {
+        gap: 2rem 1rem !important;
+    }
+
+    /* Stack footer sections clearly */
+    footer .col-span-2 {
+        padding-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Ensure UTOPIA 2K26 logo is visible */
+    footer .col-span-2 span {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+        line-height: 1.2 !important;
+        display: block !important;
+    }
+
+    /* Space footer description text */
+    footer .col-span-2 p {
+        margin-top: 1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Footer section headings */
+    footer h4 {
+        margin-bottom: 1rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.1em !important;
+    }
+
+    /* Footer navigation links */
+    footer ul li a,
+    footer ul li {
+        display: block !important;
+        padding: 0.5rem 0 !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Ensure proper spacing between Explore and Participate sections */
+    footer .col-span-1 {
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Social icons container */
+    footer .col-span-2.lg\\:col-span-1 {
+        margin-top: 1rem !important;
+    }
+
+    /* Copyright section */
+    footer .border-t {
+        margin-top: 1.5rem !important;
+        padding-top: 1.5rem !important;
+    }
+}

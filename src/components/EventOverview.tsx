@@ -49,7 +49,7 @@ const EventOverview = () => {
   return (
     <section
       id="off-stage-events"
-      className="relative py-24 px-6 md:px-20 bg-background overflow-hidden"
+      className="relative py-12 px-4 md:py-24 md:px-6 lg:px-20 bg-background overflow-hidden"
     >
       {/* Ambient radial glow — purely decorative, pointer-events off */}
       <div
@@ -71,7 +71,7 @@ const EventOverview = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* ── Section Header ───────────────────────────────────────────────── */}
-        <div className="mb-16">
+        <div className="mb-8 md:mb-16">
           <ScrollReveal>
             <span className="text-[10px] font-sans uppercase tracking-[0.6em] text-primary">
               Beyond the Main Stage
@@ -79,14 +79,14 @@ const EventOverview = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <h2 className="mt-4 text-[11vw] md:text-[5.5vw] font-serif font-black leading-[0.88] tracking-[-0.03em] text-foreground">
+            <h2 className="mt-2 md:mt-4 text-[11vw] md:text-[5.5vw] font-serif font-black leading-[0.88] tracking-[-0.03em] text-foreground">
               Off&#8209;Stage{" "}
               <span className="italic text-primary">Events</span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.18}>
-            <p className="mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed">
+            <p className="mt-3 md:mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed">
               The magic of Utopia 2K26 stretches far beyond the spotlight.
               Competitions, workshops, and cultural showcases built for every
               kind of creator — come participate, not just watch.
@@ -95,7 +95,7 @@ const EventOverview = () => {
 
           {/* Ornamental divider */}
           <ScrollReveal delay={0.22}>
-            <div className="mt-10 flex items-center gap-4">
+            <div className="mt-6 md:mt-10 flex items-center gap-4">
               <div className="h-px flex-1 bg-border max-w-[80px]" />
               <span className="text-primary text-xs tracking-[0.5em] font-sans uppercase select-none">
                 ◈
@@ -106,7 +106,7 @@ const EventOverview = () => {
         </div>
 
         {/* ── Cards Grid ───────────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
           {OFF_STAGE_EVENTS.map((event, i) => (
             <ScrollReveal key={event.index} delay={i * 0.07}>
               <div
@@ -153,7 +153,7 @@ const EventOverview = () => {
 
         {/* ── CTA Button ───────────────────────────────────────────────────── */}
         <ScrollReveal delay={0.32}>
-          <div className="mt-16 flex justify-center">
+          <div className="mt-10 md:mt-16 flex justify-center">
             <button
               type="button"
               onClick={() => navigate("/about")}
@@ -200,7 +200,7 @@ const EventOverview = () => {
 
         {/* Bottom rule */}
         <ScrollReveal delay={0.38}>
-          <div className="mt-16 h-px w-full bg-border/50" />
+          <div className="mt-10 md:mt-16 h-px w-full bg-border/50" />
         </ScrollReveal>
       </div>
     </section>

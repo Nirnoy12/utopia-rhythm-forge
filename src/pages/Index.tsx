@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 import heroClassical from "@/assets/hero-classical.jpg";
 import heroNeon from "@/assets/hero-neon.jpg";
@@ -24,7 +29,7 @@ const Index = () => {
   // Element 1: Rotating semicircle (alpona2.png)
   const alponaRotation = useTransform(scrollYProgress, [0, 1], [0, 360]); // Rotate 1 full turn
   const alponaY = useTransform(scrollYProgress, [0, 1], ["-10vh", "80vh"]); // Move vertically
-  
+
   // Element 2: Infinite Vertical Strip (head.png)
   const stripBgX = useTransform(scrollYProgress, [0, 1], ["0px", "-1000px"]); // Move background like marquee
 
@@ -171,7 +176,7 @@ const Index = () => {
 
       {/* Left Decorative Column */}
       <div
-        className="fixed left-0 top-0 h-screen w-[150px] pointer-events-none mix-blend-difference"
+        className="desktop-decorative-column fixed left-0 top-0 h-screen w-[150px] pointer-events-none mix-blend-difference"
         style={{ zIndex: 10 }}
       >
         {/* Element 1: Rotating Semicircle (alpona2.png) */}
@@ -224,7 +229,7 @@ const Index = () => {
               alt="Decorative bg"
               decoding="async"
               className="object-cover w-full h-full md:hidden"
-              src={heroNeon}
+              src={heroClassical}
             />
           </div>
           <div className="relative flex flex-col items-center gap-6 z-50">
@@ -247,6 +252,66 @@ const Index = () => {
               </h1>
             </div>
           </div>
+
+          {/* Decorative Mandala-Tech Fusion Pattern (Mobile Only) */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 md:hidden pointer-events-none">
+            <svg
+              width="200"
+              height="80"
+              viewBox="0 0 200 80"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="opacity-40"
+            >
+              {/* Outer circle mandala */}
+              <circle
+                cx="100"
+                cy="40"
+                r="35"
+                stroke="rgba(182, 74, 43, 0.3)"
+                strokeWidth="1"
+                fill="none"
+              />
+              <circle
+                cx="100"
+                cy="40"
+                r="28"
+                stroke="rgba(182, 74, 43, 0.2)"
+                strokeWidth="0.5"
+                fill="none"
+                strokeDasharray="4 4"
+              />
+              {/* Inner geometric pattern */}
+              <path
+                d="M100 15 L110 30 L125 30 L112 40 L117 55 L100 45 L83 55 L88 40 L75 30 L90 30 Z"
+                stroke="rgba(182, 74, 43, 0.4)"
+                strokeWidth="0.8"
+                fill="rgba(182, 74, 43, 0.05)"
+              />
+              {/* Tech circuit lines */}
+              <line
+                x1="50"
+                y1="40"
+                x2="70"
+                y2="40"
+                stroke="rgba(182, 74, 43, 0.3)"
+                strokeWidth="0.5"
+              />
+              <line
+                x1="130"
+                y1="40"
+                x2="150"
+                y2="40"
+                stroke="rgba(182, 74, 43, 0.3)"
+                strokeWidth="0.5"
+              />
+              <circle cx="70" cy="40" r="2" fill="rgba(182, 74, 43, 0.4)" />
+              <circle cx="130" cy="40" r="2" fill="rgba(182, 74, 43, 0.4)" />
+              {/* Decorative dots */}
+              <circle cx="100" cy="10" r="1.5" fill="rgba(182, 74, 43, 0.5)" />
+              <circle cx="100" cy="70" r="1.5" fill="rgba(182, 74, 43, 0.5)" />
+            </svg>
+          </div>
         </div>
 
         <div hidden>
@@ -260,12 +325,18 @@ const Index = () => {
           ></audio>
         </div>
 
-        <div style={{ minHeight: "400px" }} id="about" data-section-id="about">
+        <div
+          style={{ minHeight: "200px" }}
+          className="md:min-h-[400px]"
+          id="about"
+          data-section-id="about"
+        >
           <Culture />
         </div>
 
         <div
-          style={{ minHeight: "400px" }}
+          style={{ minHeight: "200px" }}
+          className="md:min-h-[400px]"
           id="featured-artists"
           data-section-id="featured-artists"
         >
@@ -294,14 +365,16 @@ const Index = () => {
         </div>
 
         <div
-          style={{ minHeight: "400px" }}
+          style={{ minHeight: "200px" }}
+          className="md:min-h-[400px]"
           id="sponsors"
           data-section-id="sponsors"
         >
           <Sponsor />
         </div>
         <div
-          style={{ minHeight: "400px" }}
+          style={{ minHeight: "200px" }}
+          className="md:min-h-[400px]"
           id="contact"
           data-section-id="contact"
         >
@@ -323,7 +396,7 @@ const Index = () => {
                 loading="lazy"
                 decoding="async"
                 className="object-cover w-full h-full md:hidden"
-                src={heroNeon}
+                src={heroClassical}
               />
             </div>
 
