@@ -15,11 +15,7 @@ import img1 from "../assets/img7.png";
 import headdown from "../assets/head.png";
 import headup from "../assets/headup.png";
 
-type IndexProps = {
-  isLoading?: boolean;
-};
-
-const Index = ({ isLoading: appIsLoading }: IndexProps) => {
+const Index = () => {
   const [showCustomLoader, setShowCustomLoader] = useState(true);
 
   useEffect(() => {
