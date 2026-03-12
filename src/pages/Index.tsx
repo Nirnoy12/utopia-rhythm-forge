@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 import heroClassical from "@/assets/hero-classical.jpg";
 import heroNeon from "@/assets/hero-neon.jpg";
@@ -13,11 +13,20 @@ import EventOverview from "../components/EventOverview";
 
 import "../components/css/home.css";
 import img1 from "../assets/img7.png";
-import headdown from "../assets/head.png";
+import alpona2 from "../assets/alpona2.png";
 import headup from "../assets/headup.png";
 
 const Index = () => {
   const [showCustomLoader, setShowCustomLoader] = useState(true);
+
+  const { scrollYProgress } = useScroll();
+
+  // Element 1: Rotating semicircle (alpona2.png)
+  const alponaRotation = useTransform(scrollYProgress, [0, 1], [0, 360]); // Rotate 1 full turn
+  const alponaY = useTransform(scrollYProgress, [0, 1], ["-10vh", "80vh"]); // Move vertically
+  
+  // Element 2: Infinite Vertical Strip (head.png)
+  const stripBgX = useTransform(scrollYProgress, [0, 1], ["0px", "-1000px"]); // Move background like marquee
 
   useEffect(() => {
     // Only start our custom 3.5s loader sequence on the home page independently
@@ -154,83 +163,43 @@ const Index = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="w-full z-50">
-        <div
-          className="styles-module-scss-module__EhpkfW__mobileHeader"
+
+      {/* Left Decorative Column */}
+      <div
+        className="fixed left-0 top-0 h-screen w-[150px] pointer-events-none mix-blend-difference"
+        style={{ zIndex: 10 }}
+      >
+        {/* Element 1: Rotating Semicircle (alpona2.png) */}
+        <motion.div
+          className="absolute left-[-150px] top-0"
           style={{
-            transform: "translateY(0)",
-            transition: "transform 0.3s ease-in-out",
+            marginTop: "0vh",
+            y: alponaY,
+            rotate: alponaRotation,
           }}
         >
-          <div className="styles-module-scss-module__EhpkfW__logo">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-18 h-18 -mt-2 -ml-2">
-                <div className="w-full h-full flex items-center justify-center p-1">
-                  <img
-                    src={headup}
-                    alt="Logo Up"
-                    className="absolute w-12 h-12"
-                  />
-                  <img
-                    src={headdown}
-                    alt="Logo Down"
-                    className="absolute w-12 h-12"
-                  />
-                </div>
-              </div>
-            </Link>
-          </div>
-          <div className="md:hidden">
-            <div className="styles-module-scss-module__EhpkfW__button">
-              <div className="styles-module-scss-module__EhpkfW__burger "></div>
-            </div>
-          </div>
-        </div>
-        <div className="styles-module-scss-module__EhpkfW__header">
-          <div className="styles-module-scss-module__EhpkfW__nav">
-            <div style={{ display: "inline-block" }}>
-              <div className="styles-module-scss-module__EhpkfW__el">
-                <a href="#hero">Home</a>
-                <div className="styles-module-scss-module__EhpkfW__indicator"></div>
-              </div>
-            </div>
-            <div style={{ display: "inline-block" }}>
-              <div className="styles-module-scss-module__EhpkfW__el">
-                <a href="#about">About</a>
-                <div className="styles-module-scss-module__EhpkfW__indicator"></div>
-              </div>
-            </div>
-            <div style={{ display: "inline-block" }}>
-              <div className="styles-module-scss-module__EhpkfW__el">
-                <a href="#featured-artists">Artists</a>
-                <div className="styles-module-scss-module__EhpkfW__indicator"></div>
-              </div>
-            </div>
-            <div style={{ display: "inline-block" }}>
-              <div className="styles-module-scss-module__EhpkfW__el">
-                <a href="#sponsors">Sponsors</a>
-                <div className="styles-module-scss-module__EhpkfW__indicator"></div>
-              </div>
-            </div>
-            <div style={{ display: "inline-block" }}>
-              <div className="styles-module-scss-module__EhpkfW__el">
-                <a href="#contact">Contact</a>
-                <div className="styles-module-scss-module__EhpkfW__indicator"></div>
-              </div>
-            </div>
-            <div style={{ display: "inline-block" }}>
-              <div className="styles-module-scss-module__EhpkfW__el">
-                <button
-                  data-slot="button"
-                  data-variant="theatrical"
-                  data-size="default"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md disabled:pointer-events-none disabled:opacity-50 border-0 px-4 py-2 bg-[#B7410E] hover:bg-[#8B2635] text-white font-bold h-10 uppercase text-[10px] tracking-[0.2em] shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                >
-                  Login
-                </button>
-              </div>
-            </div>
-          </div>
+          <img
+            src={alpona2}
+            alt="Decorative Alpona"
+            className="w-[300px] h-auto opacity-70"
+          />
+        </motion.div>
+
+        {/* Element 2: Infinite Vertical Strip (head.png) - Rotated 90deg to be vertical */}
+        <div className="absolute left-[10px] top-0 h-screen w-[40px]">
+          <motion.div
+            className="origin-top-left"
+            style={{
+              x: 30, // Shift right so it stays within the container after rotation
+              backgroundImage: `url(${headup})`,
+              backgroundRepeat: "repeat-x",
+              backgroundPositionX: stripBgX,
+              backgroundSize: "contain",
+              rotate: 90,
+              width: "100vh", // After rotation, this becomes height
+              height: "40px", // After rotation, this becomes width
+            }}
+          />
         </div>
       </div>
 
