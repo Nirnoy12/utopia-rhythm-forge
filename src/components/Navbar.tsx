@@ -13,6 +13,7 @@ const links = [
   { to: "/day-1", label: "Day 01" },
   { to: "/day-2", label: "Day 02" },
   { to: "/contact", label: "Contact" },
+  { to: "/aboututopia", label: "About" },
 ];
 
 const Navbar = () => {
