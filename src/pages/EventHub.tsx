@@ -6,10 +6,10 @@ import day2bg from "@/assets/gallery-3.jpg";
 
 const EventHub = () => {
   return (
-    <div className="min-h-screen w-full bg-[#0a0a0a] flex flex-col items-center justify-center font-sans px-4 py-20 relative overflow-hidden">
+    <div className="min-h-screen w-full bg-[#f5efe6] flex flex-col items-center justify-center font-sans px-4 py-20 relative overflow-hidden">
       
       {/* Decorative background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[#b64a2b]/10 blur-[120px] rounded-full pointer-events-none" />
 
       {/* --- HEADER --- */}
       <div className="text-center z-10 mb-12 md:mb-20">
@@ -25,7 +25,7 @@ const EventHub = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-white drop-shadow-lg"
+          className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#3b2a1f] drop-shadow-lg"
         >
           Which day do you want to visit first?
         </motion.h1>
