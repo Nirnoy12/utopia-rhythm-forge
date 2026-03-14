@@ -35,20 +35,24 @@ const App = () => {
           <ScrollToTop />
           <CustomCursor />
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/event" element={<EventHub />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/schedule" element={<Schedule />} />
-            <Route path="/teams" element={<Teams />} />
-            <Route path="/day-1" element={<Day1 />} />
-            <Route path="/day-2" element={<Day2 />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/aboututopia" element={<AboutUtopiaPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
+          <div className="flex min-h-screen flex-col">
+            <main className="flex-1">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/event" element={<EventHub />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/schedule" element={<Schedule />} />
+                <Route path="/teams" element={<Teams />} />
+                <Route path="/day-1" element={<Day1 />} />
+                <Route path="/day-2" element={<Day2 />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/aboututopia" element={<AboutUtopiaPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

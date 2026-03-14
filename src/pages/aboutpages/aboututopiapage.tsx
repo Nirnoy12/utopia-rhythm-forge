@@ -19,7 +19,7 @@ const AboutUtopiaPage = () => {
   const blurFilter = useMotionTemplate`blur(${blur}px)`;
 
   return (
-    <div ref={ref} style={{ height: "200vh", perspective: "1200px" }}>
+    <div ref={ref} style={{ minHeight: "200vh", perspective: "1200px" }}>
       
       {/* First Page */}
       <motion.div
@@ -39,7 +39,7 @@ const AboutUtopiaPage = () => {
       {/* Second Page */}
       <div
         style={{
-          height: "100vh",
+          minHeight: "100vh",
           background: "#fff",
         }}
       >
