@@ -17,7 +17,7 @@ import Day2 from "./pages/Day2";
 import Schedule from "./pages/Schedule";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import AboutUtopia from "./pages/aboututopia";
+import AboutUtopiaPage from "./pages/aboutpages/aboututopiapage";
 
 // FIXED: Capitalized the component name
 import Teams from "./pages/Teams"; 
@@ -45,7 +45,7 @@ const App = () => {
             <Route path="/day-1" element={<Day1 />} />
             <Route path="/day-2" element={<Day2 />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/aboututopia" element={<AboutUtopia />} />
+            <Route path="/aboututopia" element={<AboutUtopiaPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

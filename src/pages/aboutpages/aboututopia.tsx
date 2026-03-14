@@ -1,5 +1,5 @@
 import React from "react";
-import pattern from "../assets/alpona2.png";
+import pattern from "../../assets/alpona2.png";
 
 const MandalaHeader: React.FC = () => {
   return (
