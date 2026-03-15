@@ -22,9 +22,8 @@ const Contact = () => {
   }, []);
 
   const spcontact = [
-    { name: "Mr. Debayan Ghosh", phone: "+916291873010" },
-    { name: "Mr. Indrajit Biswas", phone: "+918617204007" },
-    { name: "Mr. Kevin Steve Domingo", phone: "+919088998444" },
+    { name: "Mr. Pranjal Basu", phone: "+919330549983" },
+    { name: "Mr. Atig Chandra", phone: "+919330301807" },
   ];
 
   const contactMethods = [
@@ -111,28 +110,31 @@ const Contact = () => {
       {/* Main Page */}
       <div className="min-h-screen bg-background overflow-x-hidden">
         
-        {/* Full Page Width Image Section */}
-        <div className="w-full h-auto pt-20">
+        {/* FULL PAGE HERO IMAGE */}
+        <div className="w-full h-screen relative">
           <img
             src="/deb/CONTACT.png"
             alt="Contact Us"
-            className="w-full h-auto object-cover block"
+            className="w-full h-full object-cover block"
           />
+          {/* Optional: Overlay text if you want it on top of the image */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+             <h1 className="text-white text-5xl md:text-7xl font-serif drop-shadow-2xl">Get In Touch</h1>
+          </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
           
           {/* Subtitle Section */}
           <div className="text-center mb-16">
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Have questions about Utopia or the hackathon? Reach out to us
+              Have questions about Utopia ? Reach out to us
               through any of the channels below and our team will get back to you
               as soon as possible.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column: Contact Methods & Map */}
             <div className="lg:col-span-2 space-y-12">
               <section>
                 <h2 className="text-xl md:text-2xl font-serif tracking-tight mb-6">Contact Information</h2>
@@ -164,23 +166,22 @@ const Contact = () => {
 
               <section>
                 <h2 className="text-xl md:text-2xl font-serif tracking-tight mb-6">Our Location</h2>
-                <Card className="overflow-hidden border border-border">
-                  <iframe
-                    title="MCKVIE Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.358223947842!2d88.3468640751936!3d22.640441979444153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8999336666667%3A0x673322d64f0f0310!2sMCKV%20Institute%20of%20Engineering!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-                    width="100%"
-                    height="400"
-                    className="border-0"
-                    loading="lazy"
-                    allowFullScreen
+                <Card className="overflow-hidden border border-border shadow-sm">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.5530865553546!2d88.34565530948232!3d22.61949497937262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89d65da7b3775%3A0x30915f7e98f1b0d5!2sMCKV%20Institute%20of%20Engineering!5e1!3m2!1sen!2sin!4v1773584721934!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="450" 
+                    style={{ border: 0 }} 
+                    allowFullScreen="" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="MCKVIE Location Map"
                   ></iframe>
                 </Card>
               </section>
             </div>
 
-            {/* Right Column: Sidebar */}
             <div className="space-y-6">
-              {/* Call Section */}
               <Card className="p-6 border border-border">
                 <h3 className="text-lg font-serif mb-4">Direct Contact</h3>
                 <div className="space-y-3">
@@ -200,7 +201,6 @@ const Contact = () => {
                 </div>
               </Card>
 
-              {/* Quick Info */}
               <Card className="p-6 text-center space-y-4 border border-border">
                 <h3 className="text-lg font-serif">Availability</h3>
                 <div className="space-y-4 text-sm">
@@ -221,7 +221,6 @@ const Contact = () => {
                 </div>
               </Card>
 
-              {/* FAQ Section */}
               <Card className="p-6 border border-border">
                 <h3 className="text-lg font-serif mb-4">Quick FAQs</h3>
                 <div className="space-y-4">
@@ -241,4 +240,4 @@ const Contact = () => {
   );
 };
 
-export default Contact
+export default Contact;
