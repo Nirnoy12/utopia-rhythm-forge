@@ -50,38 +50,32 @@ const AboutUtopiaPage = () => {
       {/* HERO SECTION */}
       <section
         ref={targetRef}
-        className="relative pt-24 pb-20 flex flex-col items-center text-center w-full"
+        className="relative pt-0 pb-40 flex flex-col items-center text-center w-full"
       >
+        
+        {/* FULL WIDTH ABOUT IMAGE - Made larger with custom height */}
+        <img
+  src="/deb/ABOUT.png"
+  alt="About"
+  className="block w-full h-[100vh] object-cover drop-shadow-2xl"            
+/>
+
+        {/* Subtitle */}
         <motion.div
-          style={{ opacity, scale }}
-          className="relative z-10 w-full flex flex-col items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-[-10] max-w-3xl mx-auto px-6"
         >
-          {/* FULL WIDTH ABOUT IMAGE */}
-          <motion.img
-            src="/deb/ABOUT.png"
-            alt="About"
-            className="w-screen max-w-none object-contain drop-shadow-2xl"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
-          />
+          <p className="text-xl md:text-3xl text-slate-600 dark:text-slate-400 font-bold leading-relaxed">
+            A visual journey through moments, culture, and creativity —
+            where every frame captures the spirit of innovation and
+            tradition coming together.
+          </p>
 
-          {/* Subtitle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="mt-10 max-w-3xl mx-auto px-6"
-          >
-            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed">
-              A visual journey through moments, culture, and creativity —
-              where every frame captures the spirit of innovation and
-              tradition coming together.
-            </p>
-
-            <div className="mt-8 flex justify-center">
-              <div className="w-3 h-3 bg-orange-500 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.5)]" />
-            </div>
-          </motion.div>
+          <div className="mt-8 flex justify-center">
+            <div className="w-3 h-3 bg-orange-500 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.5)]" />
+          </div>
         </motion.div>
 
         {/* Background Glow */}
