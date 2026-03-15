@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
+import contact from "../assets/contactus.png";
+
 import {
   Mail,
   Instagram,
@@ -112,18 +114,16 @@ const Contact = () => {
       <div className="min-h-screen bg-background overflow-x-hidden">
         
         {/* FULL PAGE HERO IMAGE */}
-        <div className="w-full h-screen relative">
+        <div className="w-full relative pt-32 pb-10 px-4 sm:px-10 lg:px-20 text-center">
           <img
-            src="/deb/CONTACT.png"
+            src={contact}
             alt="Contact Us"
-            className="w-full h-full object-cover block"
+            className="w-full max-w-6xl mx-auto object-contain drop-shadow-2xl block"
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-             <h1 className="text-white text-5xl md:text-7xl font-serif drop-shadow-2xl text-center">Get In Touch</h1>
-          </div>
+          
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-5">
           
           {/* Subtitle Section */}
           <div className="text-center mb-16">
