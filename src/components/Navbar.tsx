@@ -6,12 +6,13 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
+  { to: "/aboututopia", label: "About" },
   { to: "/event", label: "Event" },
   { to: "/schedule", label: "Schedule" },
   { to: "/gallery", label: "Gallery" },
   { to: "/teams", label: "Team" },
   { to: "/contact", label: "Contact" },
-  { to: "/aboututopia", label: "About" },
+  
 ];
 
 const Navbar = () => {
