@@ -17,10 +17,10 @@ const Contact = () => {
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    // Set to 2 seconds (2000ms)
+    // Set to 1 second (1000ms)
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -172,7 +172,7 @@ const Contact = () => {
                     width="100%" 
                     height="450" 
                     style={{ border: 0 }} 
-                    allowFullScreen 
+                    allowFullScreen="" 
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
                     title="MCKVIE Location Map"
