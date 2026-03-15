@@ -1,5 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import TiltImage from "@/components/TiltImage";
 
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -21,40 +20,6 @@ const getSevenImages = () => {
 };
 
 const Gallery = () => {
-  const [isOpening, setIsOpening] = useState(true);
-
-  useEffect(() => {
-    // 👇 CONTROL 1: INITIAL PAUSE 👇
-    const timer = setTimeout(() => setIsOpening(false), 500); 
-    return () => clearTimeout(timer);
-  }, []);
-
-  const stripeVariants = {
-    initial: { 
-      x: 0, 
-      scaleX: 1, 
-      skewX: 0,
-      opacity: 1 
-    },
-    exit: (custom: { direction: "left" | "right", index: number }) => ({
-      x: custom.direction === "left" ? "-85vw" : "85vw", 
-      scaleX: 0.15, 
-      // Slightly more drag to emphasize the slow, heavy weight
-      skewX: custom.direction === "left" ? 10 : -10, 
-      transition: {
-        // 👇 CONTROL 2: SLOWER SPRING PHYSICS 👇
-        type: "spring",
-        stiffness: 20,  // Lower tension = slower pull
-        damping: 16,    // Friction to keep it smooth
-        mass: 4,        // Higher mass makes it feel incredibly heavy
-        // 👇 CONTROL 3: SLOWER STAGGER DELAY 👇
-        delay: custom.direction === "left" 
-                ? (5 - custom.index) * 0.2 
-                : custom.index * 0.2, // Increased from 0.12 to 0.2
-      },
-    }),
-  };
-
   const renderRow = (direction: "left" | "right") => {
     const animateX = direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"];
     return (
@@ -76,57 +41,10 @@ const Gallery = () => {
 
   return (
     <div className="relative bg-background min-h-screen overflow-hidden">
-      
-      <AnimatePresence>
-        {isOpening && (
-          <div className="fixed inset-0 z-40 flex pointer-events-none">
-            
-            {/* --- LEFT CURTAIN HALVES --- */}
-            <div className="w-1/2 h-full flex">
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={`left-${i}`}
-                  custom={{ direction: "left", index: i }}
-                  variants={stripeVariants}
-                  initial="initial"
-                  exit="exit"
-                  style={{ transformOrigin: "top" }} 
-                  className="relative w-[20%] h-full bg-gradient-to-r from-[#3e0a0a] via-[#a31a1a] to-[#3e0a0a] shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] border-r border-black/60 last:border-r-0 origin-top"
-                >
-                  <div className="absolute bottom-0 w-full h-6 sm:h-10 bg-gradient-to-b from-[#f9d976] via-[#e9c450] to-[#b38b22] border-t-2 border-[#5a1010] shadow-[0_-5px_15px_rgba(0,0,0,0.4)]" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent mix-blend-overlay" />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* --- RIGHT CURTAIN HALVES --- */}
-            <div className="w-1/2 h-full flex">
-              {[...Array(5)].map((_, i) => (
-                <motion.div
-                  key={`right-${i}`}
-                  custom={{ direction: "right", index: i }}
-                  variants={stripeVariants}
-                  initial="initial"
-                  exit="exit"
-                  style={{ transformOrigin: "top" }}
-                  className="relative w-[20%] h-full bg-gradient-to-r from-[#3e0a0a] via-[#a31a1a] to-[#3e0a0a] shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] border-l border-black/60 first:border-l-0 origin-top"
-                >
-                  <div className="absolute bottom-0 w-full h-6 sm:h-10 bg-gradient-to-b from-[#f9d976] via-[#e9c450] to-[#b38b22] border-t-2 border-[#5a1010] shadow-[0_-5px_15px_rgba(0,0,0,0.4)]" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent mix-blend-overlay" />
-                </motion.div>
-              ))}
-            </div>
-
-          </div>
-        )}
-      </AnimatePresence>
-
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        // 👇 CONTROL 4: DELAYED GALLERY FADE-IN 👇
-        // Increased delay from 0.8 to 1.6 to wait for the slower curtains
-        transition={{ delay: 1.6, duration: 1.5, ease: "easeOut" }} 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: "easeOut" }} 
         className="pt-24"
       >
         <section className="px-4 sm:px-10 lg:px-20 py-20 text-center">

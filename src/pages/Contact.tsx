@@ -15,9 +15,10 @@ const Contact = () => {
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
+    // Set to 2 seconds (2000ms)
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 3000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -117,9 +118,8 @@ const Contact = () => {
             alt="Contact Us"
             className="w-full h-full object-cover block"
           />
-          {/* Optional: Overlay text if you want it on top of the image */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-             <h1 className="text-white text-5xl md:text-7xl font-serif drop-shadow-2xl">Get In Touch</h1>
+             <h1 className="text-white text-5xl md:text-7xl font-serif drop-shadow-2xl text-center">Get In Touch</h1>
           </div>
         </div>
 
@@ -128,7 +128,7 @@ const Contact = () => {
           {/* Subtitle Section */}
           <div className="text-center mb-16">
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Have questions about Utopia ? Reach out to us
+              Have questions about Utopia? Reach out to us
               through any of the channels below and our team will get back to you
               as soon as possible.
             </p>
@@ -168,7 +168,7 @@ const Contact = () => {
                 <h2 className="text-xl md:text-2xl font-serif tracking-tight mb-6">Our Location</h2>
                 <Card className="overflow-hidden border border-border shadow-sm">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.5530865553546!2d88.34565530948232!3d22.61949497937262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89d65da7b3775%3A0x30915f7e98f1b0d5!2sMCKV%20Institute%20of%20Engineering!5e1!3m2!1sen!2sin!4v1773584721934!5m2!1sen!2sin" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.353380486877!2d88.34731387530232!3d22.6406209794443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89ac474542283%3A0x608e9207908b9829!2sMCKV%20Institute%20of%20Engineering!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                     width="100%" 
                     height="450" 
                     style={{ border: 0 }} 
@@ -189,7 +189,7 @@ const Contact = () => {
                     <div key={sp.phone} className="flex items-center justify-between p-2 hover:bg-muted/60 rounded-lg transition-colors">
                       <span className="text-sm font-medium">{sp.name}</span>
                       <div className="flex items-center space-x-3">
-                        <button onClick={() => window.open(`https://wa.me/${sp.phone}`, "_blank")} className="hover:text-primary">
+                        <button onClick={() => window.open(`https://wa.me/${sp.phone.replace('+', '')}`, "_blank")} className="hover:text-primary">
                           <MessageCircle className="w-4 h-4" />
                         </button>
                         <a href={`tel:${sp.phone}`} className="hover:text-primary">
