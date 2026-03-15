@@ -14,28 +14,17 @@ import {
 const Contact = () => {
   const [showIntro, setShowIntro] = useState(true);
 
-  // Hide the intro screen after 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 3000); 
-    
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
   const spcontact = [
-    {
-      name: "Mr. Debayan Ghosh",
-      phone: "+916291873010",
-    },
-    {
-      name: "Mr. Indrajit Biswas",
-      phone: "+918617204007",
-    },
-    {
-      name: "Mr. Kevin Steve Domingo",
-      phone: "+919088998444",
-    },
+    { name: "Mr. Debayan Ghosh", phone: "+916291873010" },
+    { name: "Mr. Indrajit Biswas", phone: "+918617204007" },
+    { name: "Mr. Kevin Steve Domingo", phone: "+919088998444" },
   ];
 
   const contactMethods = [
@@ -51,23 +40,20 @@ const Contact = () => {
       label: "Instagram",
       value: "@utopia.mckvie",
       description: "Follow us for the latest updates",
-      action:
-        "https://www.instagram.com/utopia.mckvie?igsh=MTExNWdhdWY3ZzExMg==",
+      action: "https://www.instagram.com/utopia.mckvie?igsh=MTExNWdhdWY3ZzExMg==",
     },
     {
       icon: MessageCircle,
       label: "WhatsApp Channel",
       value: "Official Utopia WhatsApp",
-      description:
-        "Follow the Utopia channel on WhatsApp to be updated about all the latest news.",
+      description: "Follow the Utopia channel for news.",
       action: "https://whatsapp.com/channel/0029Vb1611T8fewpIkWGQs0Z",
     },
     {
       icon: Globe,
       label: "Institute Website",
       value: "www.mckvie.edu.in",
-      description:
-        "Visit our official institute website for more details about our college.",
+      description: "Visit our official institute website.",
       action: "https://www.mckvie.edu.in",
     },
   ];
@@ -78,26 +64,12 @@ const Contact = () => {
       answer: "You can register through the official event portal.",
     },
     {
-      question: "Can I participate across different departments and years?",
+      question: "Can I participate across different departments?",
       answer: "Yes, participation across departments and years is allowed.",
-    },
-    {
-      question: "Can I participate across different colleges?",
-      answer: "Yes, participation from different colleges is permitted.",
-    },
-    {
-      question: "What is the registration fee for the hackathon?",
-      answer:
-        "There is a registration fee. You can view the details on the registration page.",
     },
     {
       question: "What is the last day to register?",
       answer: "The last date for registration is October 9th, 2025.",
-    },
-    {
-      question: "What should I bring to the hackathon?",
-      answer:
-        "Bring your laptop, charger, government-issued ID, and enthusiasm. We'll provide meals and snacks.",
     },
   ];
 
@@ -110,56 +82,49 @@ const Contact = () => {
             10%, 30%, 50%, 70%, 90% { transform: rotate(-12deg); }
             20%, 40%, 60%, 80% { transform: rotate(12deg); }
           }
-          .animate-ringing {
-            animation: ring-shake 1.5s ease-in-out infinite;
-          }
+          .animate-ringing { animation: ring-shake 1.5s ease-in-out infinite; }
           @keyframes wave-ripple {
             0% { transform: scale(0.8); opacity: 1; }
             100% { transform: scale(2.5); opacity: 0; }
           }
-          .animate-wave-1 {
-            animation: wave-ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-          }
-          .animate-wave-2 {
-            animation: wave-ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation-delay: 1s;
-          }
+          .animate-wave-1 { animation: wave-ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+          .animate-wave-2 { animation: wave-ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite; animation-delay: 1s; }
         `}
       </style>
 
-      {/* Intro Splash Screen Overlay - Adjusted z-index and padding for Navbar */}
-      <div 
-        className={`fixed inset-0 z-40 pt-24 flex flex-col items-center justify-center bg-background transition-opacity duration-1000 ease-in-out ${
+      {/* Intro Splash Screen */}
+      <div
+        className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-background transition-opacity duration-1000 ease-in-out ${
           showIntro ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="relative flex items-center justify-center w-64 h-64 mb-8">
-          {/* Ringing Sound Waves (CSS Ripples) */}
           <div className="absolute inset-0 rounded-full border-2 border-primary/40 animate-wave-1"></div>
           <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-wave-2"></div>
-          
-          {/* The Phone (Lucide Icon + CSS Shake) */}
-          <div className="relative z-10 bg-background rounded-full p-6 shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.05)] border border-border">
-            <Smartphone 
-              className="w-24 h-24 text-primary animate-ringing drop-shadow-lg" 
-              strokeWidth={1.5} 
-            />
+          <div className="relative z-10 bg-background rounded-full p-6 border border-border">
+            <Smartphone className="w-24 h-24 text-primary animate-ringing" strokeWidth={1.5} />
           </div>
         </div>
-
-        <p className="text-primary font-serif text-xl md:text-2xl animate-pulse tracking-wide">
-          Connecting to Utopia...
-        </p>
+        <p className="text-primary font-serif text-xl animate-pulse">Connecting to Utopia...</p>
       </div>
 
-      {/* Main Content (Exactly as you originally provided it) */}
-      <div className="min-h-screen bg-background pt-24 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto py-16">
+      {/* Main Page */}
+      <div className="min-h-screen bg-background overflow-x-hidden">
+        
+        {/* Full Page Width Image Section */}
+        <div className="w-full h-auto pt-20">
+          <img
+            src="/deb/CONTACT.png"
+            alt="Contact Us"
+            className="w-full h-auto object-cover block"
+          />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
+          
+          {/* Subtitle Section */}
           <div className="text-center mb-16">
-            <h1 className="text-[10vw] md:text-[4vw] font-serif font-black leading-tight tracking-[-0.04em]">
-              Contact Us
-            </h1>
-            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Have questions about Utopia or the hackathon? Reach out to us
               through any of the channels below and our team will get back to you
               as soon as possible.
@@ -167,93 +132,66 @@ const Contact = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
-              <h2 className="text-xl md:text-2xl font-serif tracking-tight">
-                Contact Information
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {contactMethods.map((method, index) => (
-                  <Card
-                    key={index}
-                    className="bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg cursor-pointer"
-                    onClick={() =>
-                      method.action.startsWith("http")
-                        ? window.open(method.action, "_blank")
-                        : (window.location.href = method.action)
-                    }
-                  >
-                    <div className="flex items-start space-x-4 p-5">
-                      <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center">
-                          <method.icon className="w-5 h-5 text-foreground" />
+            {/* Left Column: Contact Methods & Map */}
+            <div className="lg:col-span-2 space-y-12">
+              <section>
+                <h2 className="text-xl md:text-2xl font-serif tracking-tight mb-6">Contact Information</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {contactMethods.map((method, index) => (
+                    <Card
+                      key={index}
+                      className="bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg cursor-pointer p-5"
+                      onClick={() =>
+                        method.action.startsWith("http")
+                          ? window.open(method.action, "_blank")
+                          : (window.location.href = method.action)
+                      }
+                    >
+                      <div className="flex items-start space-x-4">
+                        <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center flex-shrink-0">
+                          <method.icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h3 className="text-base font-medium">{method.label}</h3>
+                          <p className="text-sm text-primary font-medium mt-1">{method.value}</p>
+                          <p className="text-sm text-muted-foreground mt-1">{method.description}</p>
                         </div>
                       </div>
-                      <div>
-                        <h3 className="text-base font-medium">{method.label}</h3>
-                        {method.value && (
-                          <p className="text-sm text-primary font-medium mt-1">
-                            {method.value}
-                          </p>
-                        )}
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {method.description}
-                        </p>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-
-                <div className="col-span-1 md:col-span-2 space-y-4">
-                  <h2 className="text-xl md:text-2xl font-serif tracking-tight">
-                    Our Location
-                  </h2>
-                  <Card className="bg-card border border-border overflow-hidden">
-                    <div className="relative">
-                      <iframe
-                        title="MCKVIE Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1179.9289977725145!2d88.34797474294864!3d22.61976036850415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89d65da7b3775%3A0x30915f7e98f1b0d5!2sMCKV%20Institute%20of%20Engineering!5e0!3m2!1sen!2sin!4v1756609585992!5m2!1sen!2sin"
-                        width="100%"
-                        height="360"
-                        className="border-0 w-full"
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  </Card>
+                    </Card>
+                  ))}
                 </div>
-              </div>
+              </section>
+
+              <section>
+                <h2 className="text-xl md:text-2xl font-serif tracking-tight mb-6">Our Location</h2>
+                <Card className="overflow-hidden border border-border">
+                  <iframe
+                    title="MCKVIE Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.358223947842!2d88.3468640751936!3d22.640441979444153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8999336666667%3A0x673322d64f0f0310!2sMCKV%20Institute%20of%20Engineering!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="400"
+                    className="border-0"
+                    loading="lazy"
+                    allowFullScreen
+                  ></iframe>
+                </Card>
+              </section>
             </div>
 
+            {/* Right Column: Sidebar */}
             <div className="space-y-6">
-              <Card className="bg-card border border-border p-6">
-                <h3 className="text-lg md:text-xl font-serif mb-4">Call Us</h3>
+              {/* Call Section */}
+              <Card className="p-6 border border-border">
+                <h3 className="text-lg font-serif mb-4">Direct Contact</h3>
                 <div className="space-y-3">
                   {spcontact.map((sp) => (
-                    <div
-                      key={sp.name}
-                      className="flex items-center justify-between rounded-lg px-2 py-2 hover:bg-muted/60 transition-colors"
-                    >
-                      <span className="text-sm font-medium text-foreground">
-                        {sp.name}
-                      </span>
+                    <div key={sp.phone} className="flex items-center justify-between p-2 hover:bg-muted/60 rounded-lg transition-colors">
+                      <span className="text-sm font-medium">{sp.name}</span>
                       <div className="flex items-center space-x-3">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            window.open(`https://wa.me/${sp.phone}`, "_blank")
-                          }
-                          aria-label={`Chat with ${sp.phone} on WhatsApp`}
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
+                        <button onClick={() => window.open(`https://wa.me/${sp.phone}`, "_blank")} className="hover:text-primary">
                           <MessageCircle className="w-4 h-4" />
                         </button>
-                        <a
-                          href={`tel:${sp.phone}`}
-                          aria-label={`Call ${sp.name}`}
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
+                        <a href={`tel:${sp.phone}`} className="hover:text-primary">
                           <Phone className="w-4 h-4" />
                         </a>
                       </div>
@@ -262,41 +200,35 @@ const Contact = () => {
                 </div>
               </Card>
 
-              <Card className="bg-card border border-border p-6 text-center space-y-4">
-                <h3 className="text-lg md:text-xl font-serif">Quick Info</h3>
-                <div className="space-y-4 text-sm text-foreground">
+              {/* Quick Info */}
+              <Card className="p-6 text-center space-y-4 border border-border">
+                <h3 className="text-lg font-serif">Availability</h3>
+                <div className="space-y-4 text-sm">
                   <div className="flex items-center justify-center space-x-3">
-                    <Clock className="w-4 h-4" />
+                    <Clock className="w-4 h-4 text-primary" />
                     <div className="text-left">
                       <p className="font-medium">Response Time</p>
-                      <p className="text-muted-foreground text-xs">
-                        Within 24 hours
-                      </p>
+                      <p className="text-muted-foreground text-xs">Within 24 hours</p>
                     </div>
                   </div>
                   <div className="flex items-center justify-center space-x-3">
-                    <Users className="w-4 h-4" />
+                    <Users className="w-4 h-4 text-primary" />
                     <div className="text-left">
-                      <p className="font-medium">Support Available</p>
-                      <p className="text-muted-foreground text-xs">
-                        9 AM - 6 PM IST
-                      </p>
+                      <p className="font-medium">Support Hours</p>
+                      <p className="text-muted-foreground text-xs">9 AM - 6 PM IST</p>
                     </div>
                   </div>
                 </div>
               </Card>
 
-              <Card className="bg-card border border-border p-6">
-                <h3 className="text-lg md:text-xl font-serif mb-4">Quick FAQs</h3>
+              {/* FAQ Section */}
+              <Card className="p-6 border border-border">
+                <h3 className="text-lg font-serif mb-4">Quick FAQs</h3>
                 <div className="space-y-4">
                   {faqs.map((faq, index) => (
-                    <div key={index}>
-                      <h4 className="text-sm font-semibold text-foreground mb-1">
-                        {faq.question}
-                      </h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {faq.answer}
-                      </p>
+                    <div key={index} className="border-b border-border last:border-0 pb-3 last:pb-0">
+                      <h4 className="text-sm font-semibold mb-1">{faq.question}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{faq.answer}</p>
                     </div>
                   ))}
                 </div>
@@ -309,4 +241,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact
