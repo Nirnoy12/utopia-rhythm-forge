@@ -19,6 +19,7 @@ import "../components/css/home.css";
 import img1 from "../assets/img7.png";
 import alpona2 from "../assets/alpona2.png";
 import headup from "../assets/headup.png";
+import ScrollReveal from "../components/ScrollReveal";
 
 const Index = () => {
   const [showCustomLoader, setShowCustomLoader] = useState(() => {
@@ -316,17 +317,38 @@ const Index = () => {
         <div
           className="relative w-full overflow-hidden flex flex-col md:flex-row items-center justify-center py-12 md:py-32 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent z-20 max-w-7xl mx-auto"
         >
-          <div className="w-full md:w-[50%] lg:w-[45%] flex flex-col justify-center items-center text-center relative z-10 order-2 md:order-1 mt-12 md:mt-0">
-            {/* Small decorative accent */}
-            <div className="w-12 h-[3px] bg-[#B7410E] mb-8 opacity-80" />
+          <div className="w-full md:w-[60%] lg:w-[55%] flex flex-col justify-center items-start text-left relative z-10 order-2 md:order-1 mt-12 md:mt-0">
+            <ScrollReveal>
+              <span className="text-[10px] font-sans uppercase tracking-[0.6em] text-primary">
+                Our Story
+              </span>
+            </ScrollReveal>
 
-            <p className="text-base sm:text-xl lg:text-[1.75rem] font-serif text-[#3b2a1f] leading-[1.6] sm:leading-[1.8] drop-shadow-sm font-medium tracking-wide">
-              <span className="text-[#B7410E] font-bold">UTOPIA-2K26</span> marked an unforgettable celebration of talent and culture. From mesmerizing Octet performances to the electrifying
-              <span className="text-[#8B2635] italic font-semibold"> 'Flight of feet' </span> dance competitions and the glamorous
-              <span className="text-[#8B2635] italic font-semibold"> 'Style Symphony' </span> fashion show, the event showcased the best of our creative spirit.
-            </p>
-            {/* Small decorative dot */}
-            <div className="w-12 h-[3px] mt-6 bg-[#B7410E] mb-8 opacity-80" />
+            <ScrollReveal delay={0.1}>
+              <h2 className="mt-2 md:mt-4 text-[10vw] md:text-[5.2vw] font-serif font-black leading-[0.88] tracking-[-0.03em] text-foreground mb-4">
+                About Utopia{" "}
+                <span className="italic text-primary">2K26</span>
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.18}>
+              <p className="mt-3 md:mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed text-left">
+                Utopia-2K26 marked an unforgettable celebration of talent and culture. From mesmerizing Octet performances to the electrifying
+                <span className="text-primary italic font-semibold"> 'Flight of feet' </span> dance competitions and the glamorous
+                <span className="text-primary italic font-semibold"> 'Style Symphony' </span> fashion show, the event showcased the best of our creative spirit.
+              </p>
+            </ScrollReveal>
+
+            {/* Ornamental divider */}
+            <ScrollReveal delay={0.22}>
+              <div className="mt-6 md:mt-10 flex items-center justify-start gap-4">
+                <div className="h-px w-20 bg-border" />
+                <span className="text-primary text-xs tracking-[0.5em] font-sans uppercase select-none">
+                  ◈
+                </span>
+                <div className="h-px w-12 bg-border" />
+              </div>
+            </ScrollReveal>
           </div>
 
           <div className="w-full md:w-[50%] lg:w-[55%] flex justify-center items-center relative z-10 order-1 md:order-2">

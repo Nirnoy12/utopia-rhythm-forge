@@ -79,9 +79,8 @@ const Contact = () => {
     <>
       {/* Intro Splash Screen */}
       <div
-        className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-background transition-opacity duration-1000 ${
-          showIntro ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-background transition-opacity duration-1000 ${showIntro ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div className="relative flex items-center justify-center w-64 h-64 mb-8">
           <Smartphone className="w-24 h-24 text-primary animate-pulse" />
@@ -94,7 +93,7 @@ const Contact = () => {
 
       {/* Main Page */}
       <div className="min-h-screen bg-background overflow-x-hidden">
-        
+
         {/* HERO IMAGE */}
         <div className="w-full pt-32 pb-10 px-4 sm:px-10 lg:px-20 text-center">
           <img
@@ -165,13 +164,13 @@ const Contact = () => {
               <section>
                 <h2 className="text-xl md:text-2xl font-serif tracking-tight mb-6">Our Location</h2>
                 <Card className="overflow-hidden border border-border shadow-sm">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.553086135261!2d88.3482356!3d22.619495000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89d65da7b3775%3A0x30915f7e98f1b0d5!2sMCKV%20Institute%20of%20Engineering!5e1!3m2!1sen!2sin!4v1773599411319!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="450" 
-                    style={{ border: 0 }} 
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.553086135261!2d88.3482356!3d22.619495000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89d65da7b3775%3A0x30915f7e98f1b0d5!2sMCKV%20Institute%20of%20Engineering!5e1!3m2!1sen!2sin!4v1773599411319!5m2!1sen!2sin"
+                    width="100%"
+                    height="450"
+                    style={{ border: 0 }}
                     allowFullScreen
-                    loading="lazy" 
+                    loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="MCKVIE Location Map"
                   ></iframe>

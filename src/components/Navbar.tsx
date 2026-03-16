@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import MagneticButton from "./MagneticButton";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Volume2, VolumeX } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
@@ -18,6 +18,7 @@ const links = [
 const Navbar = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const isNeon = location.pathname === "/day-2";
   const isHome = location.pathname === "/";
   // Pages with very dark or black full-screen backgrounds
@@ -83,6 +84,24 @@ const Navbar = () => {
               </Link>
             </MagneticButton>
           ))}
+          
+          <MagneticButton strength={0.2}>
+            <button
+              onClick={() => setIsMuted(!isMuted)}
+              className={`p-2 rounded-full transition-all duration-300 ml-2 group ${
+                isDark ? "bg-white/10 hover:bg-white/20 text-white" : 
+                isHome ? "bg-gray-100 hover:bg-gray-200 text-gray-700" : 
+                "bg-primary/10 hover:bg-primary/20 text-primary"
+              }`}
+              aria-label={isMuted ? "Unmute music" : "Mute music"}
+            >
+              {isMuted ? (
+                <VolumeX size={18} className="group-hover:scale-110 transition-transform" />
+              ) : (
+                <Volume2 size={18} className="group-hover:scale-110 transition-transform" />
+              )}
+            </button>
+          </MagneticButton>
         </div>
 
         {/* Mobile Toggle */}
@@ -121,6 +140,21 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
+
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: links.length * 0.1 }}
+              onClick={() => setIsMuted(!isMuted)}
+              className={`mt-6 p-4 rounded-full flex items-center gap-3 font-serif text-xl border ${
+                isDark ? "border-white/20 text-white bg-white/10" : 
+                isHome ? "border-gray-200 text-gray-800 bg-gray-50" : 
+                "border-primary/20 text-primary bg-primary/5"
+              }`}
+            >
+              {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+              {isMuted ? "Unmute Music" : "Mute Music"}
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

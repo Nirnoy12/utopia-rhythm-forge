@@ -156,7 +156,7 @@ const EventOverview = () => {
           <div className="mt-10 md:mt-16 flex justify-center">
             <button
               type="button"
-              onClick={() => navigate("/events")}
+              onClick={() => navigate("/event")}
               className={[
                 "group relative inline-flex items-center gap-3",
                 "px-10 py-4",
