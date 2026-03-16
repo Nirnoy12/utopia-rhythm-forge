@@ -68,14 +68,6 @@ const Footer = () => {
                 <li>
                   <Link
                     className="text-lg md:text-2xl text-white hover:text-primary transition-colors inline-block font-[family-name:var(--font-medieval-sharp)] uppercase tracking-tight font-bold"
-                    to="/#sponsors"
-                  >
-                    Sponsors
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-lg md:text-2xl text-white hover:text-primary transition-colors inline-block font-[family-name:var(--font-medieval-sharp)] uppercase tracking-tight font-bold"
                     to="/contact"
                   >
                     Contact
