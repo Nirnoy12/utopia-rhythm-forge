@@ -333,7 +333,9 @@ const Index = () => {
 
             <ScrollReveal delay={0.18}>
               <p className="mt-3 md:mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed text-left">
-                Utopia-2K26 marked an unforgettable celebration of talent and culture. From mesmerizing Octet performances to the electrifying
+                <span className="text-foreground font-semibold">UTOPIA</span> is the annual cultural fest of MCKVIE—a grand showcase of talent and togetherness. From music, dance, and drama to fashion shows, gaming contests, and celebrity performances, it offers a platform for students to explore their creative limits. 
+                <br /><br />
+                Utopia-2K26 blends culture with innovation, featuring interactive workshops, exhibitions, and food stalls that create an unforgettable, electrifying atmosphere. It marked an unforgettable celebration of talent and culture, from mesmerizing Octet performances to the electrifying
                 <span className="text-primary italic font-semibold"> 'Flight of feet' </span> dance competitions and the glamorous
                 <span className="text-primary italic font-semibold"> 'Style Symphony' </span> fashion show, the event showcased the best of our creative spirit.
               </p>
