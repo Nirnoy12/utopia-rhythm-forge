@@ -1,52 +1,68 @@
 import { motion } from "framer-motion";
 import TiltImage from "@/components/TiltImage";
 
-const getImageSrc = (index: number) => {
-  // Use uppercase .JPG to match your actual file extensions
-  return `/gallery/${index}.JPG`;
-};
+// Always serve WebP thumbnails – each is only ~15–40 KB vs the 10 MB originals
+const getImageSrc = (index: number) => `/gallery/webp/${index}.webp`;
+
+// Each row loops through 10 unique images (duplicated once for seamless loop)
+const rowImages = (start: number) =>
+  Array.from({ length: 10 }, (_, i) => start + i + 1);
 
 const Gallery = () => {
   const renderRow = (direction: "left" | "right", start: number) => {
-    const animateX = direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"];
+    const images = rowImages(start);
+    // Duplicate the array once → seamless loop: [1..10, 1..10]
+    const items = [...images, ...images];
+    const animName =
+      direction === "left" ? "marquee-left" : "marquee-right";
 
     return (
-      <div className="overflow-hidden w-full">
-        <motion.div
-          animate={{ x: animateX }}
-          transition={{
-            duration: 35,
-            ease: "linear",
-            repeat: Infinity,
-          }}
+      <div
+        className="overflow-hidden w-full"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+        }}
+      >
+        <div
           className="flex gap-6"
+          style={{
+            animation: `${animName} 35s linear infinite`,
+            willChange: "transform",
+            width: "max-content",
+          }}
         >
-          {Array.from({ length: 20 }).map((_, i) => {
-            // Generates 1-10 for row 1, 11-20 for row 2, 21-30 for row 3
-            const imgIndex = start + (i % 10) + 1;
-
-            return (
-              <div
-                key={i}
-                className="flex-shrink-0
-                w-44 h-28 sm:w-56 sm:h-36 md:w-64 md:h-40 lg:w-72 lg:h-44
-                p-[3px] bg-black rounded-xl overflow-hidden"
-              >
-                <TiltImage
-                  src={getImageSrc(imgIndex)}
-                  alt={`Image ${imgIndex}`}
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-            );
-          })}
-        </motion.div>
+          {items.map((imgIndex, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 w-44 h-28 sm:w-56 sm:h-36 md:w-64 md:h-40 lg:w-72 lg:h-44 p-[3px] bg-black rounded-xl overflow-hidden"
+            >
+              <TiltImage
+                src={getImageSrc(imgIndex)}
+                alt={`Gallery image ${imgIndex}`}
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     );
   };
 
   return (
     <div className="relative bg-background min-h-screen overflow-hidden">
+      {/* CSS keyframe definitions – zero JS cost at runtime */}
+      <style>{`
+        @keyframes marquee-left {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          from { transform: translateX(-50%); }
+          to   { transform: translateX(0); }
+        }
+      `}</style>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -68,14 +84,14 @@ const Gallery = () => {
         </section>
 
         <section className="flex flex-col gap-12 px-4 sm:px-10 lg:px-20 py-16">
-          {renderRow("left", 0)}   {/* Renders images 1-10 */}
-          {renderRow("right", 10)} {/* Renders images 11-20 */}
-          {renderRow("left", 20)}  {/* Renders images 21-30 */}
+          {renderRow("left", 0)}   {/* Images 1–10 */}
+          {renderRow("right", 10)} {/* Images 11–20 */}
+          {renderRow("left", 20)}  {/* Images 21–30 */}
         </section>
 
         <section className="py-20 text-center px-4 sm:px-10 lg:px-20">
           <p className="text-2xl sm:text-3xl font-serif italic text-muted-foreground">
-            “Moments fade, but the stories they create live forever.”
+            "Moments fade, but the stories they create live forever."
           </p>
         </section>
       </motion.div>
