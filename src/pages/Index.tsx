@@ -508,13 +508,24 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {faqs.map((faq, index) => (
                 <ScrollReveal key={index} delay={index * 0.1}>
-                  <Card className="p-6 h-full hover:border-primary/50 transition-colors bg-card/50 backdrop-blur-sm">
-                    <h3 className="text-lg font-serif font-semibold mb-3 text-foreground">
+                  <Card className={[
+                    "group relative p-6 h-full transition-all duration-500 ease-out",
+                    "bg-card/50 backdrop-blur-sm border border-border",
+                    "hover:-translate-y-2",
+                    "hover:border-primary/40",
+                    "hover:shadow-[0_16px_48px_-8px_hsl(var(--primary)/0.18),0_4px_16px_-4px_hsl(var(--primary)/0.10)]",
+                  ].join(" ")}>
+                    <h3 className="text-lg font-serif font-semibold mb-3 text-foreground transition-colors duration-300 group-hover:text-primary">
                       {faq.question}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {faq.answer}
                     </p>
+                    {/* Bottom accent bar — grows left-to-right on hover */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute bottom-0 left-0 h-[2.5px] w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full"
+                    />
                   </Card>
                 </ScrollReveal>
               ))}
