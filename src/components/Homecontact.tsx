@@ -1,5 +1,5 @@
 import React from 'react';
-import arms from "../assets/arms.png";
+const arms = "/assets/arms.png";
 
 const Homecontact = () => {
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
-import contact from "../assets/contactus.png";
+const contact = "/assets/contactus.png";
 
 import {
   Mail,

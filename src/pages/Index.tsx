@@ -7,8 +7,8 @@ import {
   useTransform,
 } from "framer-motion";
 
-import heroNeon from "@/assets/hero-neon.jpg";
-import grainImage from "@/assets/grain.jpg";
+const heroNeon = "/assets/hero-neon.jpg";
+const grainImage = "/assets/grain.jpg";
 
 import Artist from "../components/Artist";
 import Culture from "../components/Culture";
@@ -16,9 +16,9 @@ import Sponsor from "../components/Sponsor";
 import EventOverview from "../components/EventOverview";
 
 import "../components/css/home.css";
-import img1 from "../assets/img7.png";
-import alpona2 from "../assets/alpona2.png";
-import headup from "../assets/headup.png";
+const img1 = "/assets/img7.png";
+const alpona2 = "/assets/alpona2.png";
+const headup = "/assets/headup.png";
 import ScrollReveal from "../components/ScrollReveal";
 
 const Index = () => {

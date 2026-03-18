@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import grainImage from "@/assets/grain.jpg";
+const grainImage = "/assets/grain.jpg";
 
 const Footer = () => {
   const headingClassName = "text-[#c4521a] text-sm md:text-xl font-semibold uppercase tracking-[0.24em] md:tracking-[0.3em] font-[family-name:var(--font-roboto-slab)]";

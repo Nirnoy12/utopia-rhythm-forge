@@ -1,8 +1,8 @@
 import React from "react";
 import ScrollReveal from "./ScrollReveal";
 
-import sponsor1 from "../assets/gdgc.png";
-import sponsor2 from "../assets/mckv.png";
+const sponsor1 = "/assets/gdgc.png";
+const sponsor2 = "/assets/mckv.png";
 
 const Sponsor = () => {
   const sponsors = [

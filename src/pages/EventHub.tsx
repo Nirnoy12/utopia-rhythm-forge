@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import day1bg from "@/assets/gallery-1.jpg";
-import day2bg from "@/assets/gallery-3.jpg";
+const day1bg = "/assets/gallery-1.jpg";
+const day2bg = "/assets/gallery-3.jpg";
 
 const EventHub = () => {
   return (

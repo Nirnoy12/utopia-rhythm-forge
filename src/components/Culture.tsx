@@ -1,5 +1,5 @@
 import React from 'react';
-import culture from "../assets/Culturex.png";
+const culture = "/assets/Culturex.png";
 import { motion } from "framer-motion";
 
 const Culture = () => {

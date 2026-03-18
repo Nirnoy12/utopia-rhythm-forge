@@ -1,5 +1,5 @@
 import React from "react";
-import artist1 from "../assets/1.png";
+const artist1 = "/assets/1.png";
 import "../components/css/artist.css";
 import ScrollReveal from "./ScrollReveal";
 

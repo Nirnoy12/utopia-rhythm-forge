@@ -2,9 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 // Assets
-import gallery1 from "@/assets/mckvie.jpg";
-import gallery3 from "@/assets/utopia23inaug.jpg";
-import gallery5 from "@/assets/utopia25.jpg";
+const gallery1 = "/assets/mckvie.jpg";
+const gallery3 = "/assets/utopia23inaug.jpg";
+const gallery5 = "/assets/utopia25.jpg";
 
 const paragraphs = [
   "Established in 1999, MCKV Institute of Engineering (MCKVIE) is a top engineering college in West Bengal known for fostering technological learning and application. An autonomous NAAC 'A' Grade accredited institution affiliated with MAKAUT, we offer diverse B.Tech programs including Mechanical, Electrical, Computer Science, and specialized new-age courses in CSE (Data Science) and AI & Machine Learning, alongside M.Tech and MBA programs.",

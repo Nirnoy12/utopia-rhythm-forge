@@ -4,9 +4,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
+const gallery1 = "/assets/gallery-1.jpg";
+const gallery3 = "/assets/gallery-3.jpg";
+const gallery5 = "/assets/gallery-5.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
