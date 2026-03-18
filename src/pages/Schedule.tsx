@@ -178,7 +178,7 @@ const UtopiaFestival: React.FC = () => {
           background: #f5efe6; color: #3b2a1f; font-family: 'Cormorant Garamond', serif;
         }
         
-        #app-root { display: flex; height: 100vh; }
+        #app-root { display: flex; height: 100vh; overflow-x: hidden; }
 
         #sitar-panel {
           width: 240px; background: #eaddcf; border-right: 1px solid rgba(59,42,31,0.1);
@@ -188,7 +188,7 @@ const UtopiaFestival: React.FC = () => {
         }
         #sitar-panel.exit { transform: translateX(-100%); opacity: 0; margin-left: -240px; }
 
-        #timeline-panel { flex: 1; overflow-y: auto; padding: 10vh 5vw; perspective: 1200px; scroll-behavior: smooth; position: relative; }
+        #timeline-panel { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 10vh 5vw; perspective: 1200px; scroll-behavior: smooth; position: relative; }
 
         /* The Timeline Line */
         #timeline-panel::before {
@@ -208,10 +208,10 @@ const UtopiaFestival: React.FC = () => {
         }
 
         @media (max-width: 768px) {
-          .utopia-body { overflow-y: auto; height: auto; min-height: 100vh; }
-          #app-root { display: block; overflow-y: auto; height: auto; min-height: 100vh; }
+          .utopia-body { overflow-y: auto; overflow-x: hidden; height: auto; min-height: 100vh; }
+          #app-root { display: block; overflow-y: auto; overflow-x: hidden; height: auto; min-height: 100vh; }
           #sitar-panel { display: none; }
-          #timeline-panel { padding: 40px 20px 40px 40px; perspective: none; position: relative; }
+          #timeline-panel { padding: 40px 20px 40px 40px; perspective: none; position: relative; overflow-x: hidden; }
           
           #timeline-panel::before {
             top: 40px;

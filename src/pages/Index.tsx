@@ -38,7 +38,7 @@ const LogoPieces = () => {
         const x2 = (c + 1) * (100 / gridSize);
         const y1 = r * (100 / gridSize);
         const y2 = (r + 1) * (100 / gridSize);
-        
+
         const clipPath = `polygon(${x1}% ${y1}%, ${x2}% ${y1}%, ${x2}% ${y2}%, ${x1}% ${y2}%)`;
 
         const startX = (Math.random() - 0.5) * 400; // Increased spread
@@ -229,40 +229,39 @@ const Index = () => {
         </div>
       </div>
 
-      <main className="min-h-screen bg-background selection:bg-primary selection:text-primary-foreground">
+      <main className="min-h-screen bg-background selection:bg-primary selection:text-primary-foreground overflow-x-hidden max-w-[100vw]">
         <div
           id="hero"
           className="preloader-overlay relative w-full min-h-screen bg-[#FFF8F0] flex flex-col items-center justify-center overflow-hidden"
         >
-          <div className="absolute inset-0 flex items-center justify-center opacity-[0.9] pointer-events-none">
+          <div className="absolute inset-0 w-full h-[100dvh] md:h-full flex items-center justify-center opacity-[0.9] pointer-events-none -z-0 overflow-hidden">
             <video
               autoPlay
               muted
               loop
               playsInline
-              className="object-cover w-full h-full"
+              className="object-cover object-center w-full h-full scale-[1.02]"
             >
               <source src="/playback.mp4" type="video/mp4" />
             </video>
           </div>
-          <div className="relative flex flex-col items-center gap-6 z-50">
-            <div className="lg:w-[350px] w-[250px] aspect-square mt-[-10vh]">
-              <div className="w-full h-full flex items-center justify-center p-8 relative"></div>
-            </div>
-            <div className="text-center mb-8 w-full px-4 overflow-hidden z-20">
-              <h1 className="text-[12vw] sm:text-7xl md:text-[8rem] font-bold text-[#2C1810] uppercase tracking-tighter drop-shadow-sm leading-none flex justify-center mix-blend-difference text-white">
-                <span>U</span>
-                <span>T</span>
-                <span>O</span>
-                <span>P</span>
-                <span>I</span>
-                <span>A</span>
-                <span>&nbsp;</span>
-                <span>2</span>
-                <span>K</span>
-                <span>2</span>
-                <span>6</span>
-              </h1>
+          <div className="relative flex flex-col items-center justify-center z-50">
+            <div className="w-[250px] md:w-[600px] relative">
+              {/* Animated glow behind logo */}
+              <div 
+                className="absolute -inset-8 md:-inset-16 rounded-full pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(245, 158, 11, 0.4), rgba(236, 72, 153, 0.2) 40%, transparent 70%)',
+                  filter: 'blur(40px)',
+                  animation: 'heroGlow 4s ease-in-out infinite',
+                }}
+              />
+              <img 
+                src="/Navbar_Logo.png" 
+                alt="Utopia Logo" 
+                className="relative w-full h-auto object-contain drop-shadow-lg pointer-events-none select-none"
+                draggable={false}
+              />
             </div>
           </div>
 
@@ -328,7 +327,7 @@ const Index = () => {
         </div>
 
         <div
-          className="relative w-full overflow-hidden flex flex-col md:flex-row items-center justify-center py-12 md:py-32 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent z-20 max-w-7xl mx-auto"
+          className="relative w-full flex flex-col md:flex-row items-center justify-center py-12 md:py-32 px-4 sm:px-6 md:px-12 lg:px-16 bg-transparent z-20 max-w-7xl mx-auto"
         >
           <div className="w-full md:w-[60%] lg:w-[55%] flex flex-col justify-center items-start text-left relative z-10 order-2 md:order-1 mt-12 md:mt-0">
             <ScrollReveal>
@@ -451,10 +450,9 @@ const Index = () => {
         </div>
 
         <div
-          style={{ minHeight: "200px" }}
-          className="mt-8 md:mt-0 md:min-h-[400px]"
           id="featured-artists"
           data-section-id="featured-artists"
+          className="w-full"
         >
           {/* Section Divider */}
           <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
@@ -463,16 +461,15 @@ const Index = () => {
         </div>
 
         {/* Section Divider */}
-        <div className="my-8 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
-        <div className="mt-8 md:mt-0">
+        <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
+        <div className="w-full">
           <EventOverview />
         </div>
 
         <div
-          style={{ minHeight: "200px" }}
-          className="mt-8 md:mt-0 md:min-h-[400px]"
           id="about"
           data-section-id="about"
+          className="w-full"
         >
           {/* Section Divider */}
           <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
@@ -480,14 +477,13 @@ const Index = () => {
         </div>
 
         <div
-          style={{ minHeight: "200px" }}
-          className="mt-8 md:mt-0 md:min-h-[400px]"
           id="faq"
           data-section-id="faq"
+          className="w-full"
         >
           {/* Section Divider */}
           <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
-          
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10 md:mb-16">
               <ScrollReveal>
@@ -531,10 +527,9 @@ const Index = () => {
         </div>
 
         <div
-          style={{ minHeight: "200px" }}
-          className="mt-8 md:mt-0 md:min-h-[400px]"
           id="sponsors"
           data-section-id="sponsors"
+          className="w-full"
         >
           {/* Section Divider */}
           <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />

@@ -38,6 +38,23 @@
     }
 }
 
+@keyframes heroGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes borderRun {
+    to {
+        stroke-dashoffset: -300;
+    }
+}
+
 /* ============================================================================
    MOBILE RESPONSIVENESS FIXES
    - Only affects mobile/tablet viewports (max-width: 768px)
@@ -177,7 +194,7 @@
     section {
         padding-top: 24px !important;
         padding-bottom: 24px !important;
-        overflow-x: hidden !important;
+        /* Removed overflow-x: hidden !important to allow mandalas and shadows to escape section blocks */
     }
 
     /* Ensure proper vertical rhythm */
@@ -231,9 +248,7 @@
     }
 
     /* ===== ENSURE PROPER STACKING ===== */
-    .relative {
-        overflow-x: hidden;
-    }
+    /* Removed .relative { overflow-x: hidden } as it breaks child absolute positioning and glow effects */
 
     /* ===== FIX GRID LAYOUTS ===== */
     [class*="grid-cols-"] {
@@ -302,10 +317,12 @@
         justify-content: center !important;
     }
 
-    #hero .absolute.inset-0 img {
+    #hero .absolute.inset-0 img,
+    #hero .absolute.inset-0 video {
         object-position: center center !important;
         width: 100% !important;
         height: 100% !important;
+        object-fit: cover !important;
     }
 
     /* Add decorative fusion pattern at bottom */

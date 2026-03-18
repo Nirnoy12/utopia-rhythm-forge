@@ -10,12 +10,12 @@ interface ScrollRevealProps {
 
 const ScrollReveal = ({ children, className = "", delay = 0, direction = "up" }: ScrollRevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
 
   const initial = {
     opacity: 0,
-    y: direction === "up" ? 80 : 0,
-    x: direction === "left" ? -80 : direction === "right" ? 80 : 0,
+    y: direction === "up" ? 35 : 0,
+    x: direction === "left" ? -35 : direction === "right" ? 35 : 0,
   };
 
   return (
