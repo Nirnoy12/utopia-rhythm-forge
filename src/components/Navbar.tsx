@@ -60,14 +60,23 @@ const Navbar = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-[9999] px-4 md:px-12 py-3 md:py-4 flex items-center justify-between backdrop-blur-md border-b ${navBg}`}>
-        <Link to="/" className="font-serif text-xl md:text-2xl font-bold tracking-wider">
-          <span
-            className={isNeon ? "neon-glow-green" : ""}
-            style={{ color: isNeon ? "hsl(var(--neon-green))" : isDark ? "#fff" : "hsl(var(--primary))" }}
-          >
-            UTOPIA
-          </span>
-          <span className={`ml-1 font-sans text-xs md:text-sm font-light ${isDark ? "text-white/60" : "text-muted-foreground"}`}>2K26</span>
+        <Link to="/" className="flex items-center gap-2 md:gap-3 transition-transform hover:scale-[1.02] active:scale-95 duration-200">
+          <img 
+            src="/logo_utopia.png" 
+            alt="Utopia Logo" 
+            className="h-6 md:h-8 w-auto object-contain drop-shadow-sm" 
+          />
+          <div className="font-serif text-xl md:text-2xl font-bold tracking-wider flex items-baseline leading-none">
+            <span
+              className={isNeon ? "neon-glow-green" : ""}
+              style={{ color: isNeon ? "hsl(var(--neon-green))" : isDark ? "#fff" : "hsl(var(--primary))" }}
+            >
+              UTOPIA
+            </span>
+            <span className={`ml-1 font-sans text-xs md:text-sm font-light ${isDark ? "text-white/60" : "text-muted-foreground"}`}>
+              2K26
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}

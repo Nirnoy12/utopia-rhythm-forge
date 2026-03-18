@@ -22,6 +22,50 @@ const alpona2 = "/assets/alpona2.png";
 const headup = "/assets/headup.png";
 import ScrollReveal from "../components/ScrollReveal";
 
+const LogoPieces = () => {
+  const pieces = [];
+  const gridSize = 5;
+  for (let r = 0; r < gridSize; r++) {
+    for (let c = 0; c < gridSize; c++) {
+      pieces.push({ r, c });
+    }
+  }
+
+  return (
+    <div className="relative w-48 h-48 md:w-80 md:h-80 mb-8 z-20">
+      {pieces.map(({ r, c }, i) => {
+        const x1 = c * (100 / gridSize);
+        const x2 = (c + 1) * (100 / gridSize);
+        const y1 = r * (100 / gridSize);
+        const y2 = (r + 1) * (100 / gridSize);
+        
+        const clipPath = `polygon(${x1}% ${y1}%, ${x2}% ${y1}%, ${x2}% ${y2}%, ${x1}% ${y2}%)`;
+
+        const startX = (Math.random() - 0.5) * 400; // Increased spread
+        const startY = (Math.random() - 0.5) * 400;
+        const startRotate = (Math.random() - 0.5) * 180;
+
+        return (
+          <motion.img
+            key={i}
+            src="/logo_utopia.png"
+            alt="Utopia Logo"
+            className="absolute inset-0 w-full h-full object-contain drop-shadow-sm"
+            style={{ clipPath }}
+            initial={{ opacity: 0, x: startX, y: startY, rotate: startRotate, scale: 0 }}
+            animate={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
+            transition={{
+              duration: 4,
+              delay: 0.2 + (r * 0.05) + (c * 0.05) + Math.random() * 0.3,
+              ease: [0.16, 1, 0.3, 1] // Custom ease for dramatic snap effect
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
 const Index = () => {
   const navigate = useNavigate();
   const faqs = [
@@ -114,48 +158,7 @@ const Index = () => {
 
             <div className="relative z-10 flex flex-col items-center">
               {/* Animated minimalist logo mark */}
-              <div className="relative w-28 h-28 mb-8">
-                <svg
-                  viewBox="0 0 100 100"
-                  className="w-full h-full drop-shadow-sm"
-                >
-                  {/* Outer circle ink stroke */}
-                  <motion.path
-                    d="M50 10 C72 10, 90 28, 90 50 C90 72, 72 90, 50 90 C28 90, 10 72, 10 50 C10 28, 28 10, 50 10"
-                    fill="none"
-                    stroke="#b64a2b"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 2.5, ease: "easeInOut" }}
-                  />
-                  {/* Inner tribal diamond/hourglass outline */}
-                  <motion.path
-                    d="M50 25 L75 50 L50 75 L25 50 Z"
-                    fill="none"
-                    stroke="#3b2a1f"
-                    strokeWidth="1.5"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{
-                      duration: 1.8,
-                      delay: 0.8,
-                      ease: "easeInOut",
-                    }}
-                  />
-                  {/* Center glowing core */}
-                  <motion.circle
-                    cx="50"
-                    cy="50"
-                    r="6"
-                    fill="#b64a2b"
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: [0, 1.2, 1], opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 1.8, ease: "easeOut" }}
-                  />
-                </svg>
-              </div>
+              <LogoPieces />
 
               {/* Typography & Actions */}
               <motion.div
@@ -164,12 +167,6 @@ const Index = () => {
                 transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
                 className="text-center flex flex-col items-center"
               >
-                <h1 className="text-4xl md:text-5xl font-serif tracking-[0.15em] text-[#3b2a1f] mb-4">
-                  UTOPIA<span className="text-[#b64a2b]">2K26</span>
-                </h1>
-                <p className="text-[#3b2a1f]/70 uppercase tracking-[0.4em] text-xs font-sans font-medium mb-8">
-                  Welcome to the Experience
-                </p>
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
