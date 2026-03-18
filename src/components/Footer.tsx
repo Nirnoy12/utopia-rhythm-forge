@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 const grainImage = "/assets/grain.jpg";
 
 const Footer = () => {
-  const headingClassName = "text-[#c4521a] text-sm md:text-xl font-semibold uppercase tracking-[0.24em] md:tracking-[0.3em] font-[family-name:var(--font-roboto-slab)]";
-  const linkClassName = "group relative inline-flex items-center text-[1.02rem] md:text-[1.28rem] text-white/90 hover:text-[#c4521a] transition-all duration-300 hover:translate-x-1 font-[family-name:var(--font-medieval-sharp)] uppercase tracking-tight font-semibold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#c4521a] after:transition-all after:duration-300 hover:after:w-full";
+  const headingClassName = "text-[#ff8800] text-sm md:text-xl font-semibold uppercase tracking-[0.24em] md:tracking-[0.3em] font-[family-name:var(--font-roboto-slab)]";
+  const linkClassName = "group relative inline-flex items-center text-[1.02rem] md:text-[1.28rem] text-white/90 hover:text-[#ff8800] transition-all duration-300 hover:translate-x-1 font-[family-name:var(--font-medieval-sharp)] uppercase tracking-tight font-semibold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#c4521a] after:transition-all after:duration-300 hover:after:w-full";
 
   return (
     <div className="w-full z relative">
@@ -29,7 +29,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.45fr_1fr_1fr_1.2fr] gap-4 md:gap-7 lg:gap-10">
             <div className="pt-6 md:pt-2 lg:-mt-6 flex flex-col items-start text-left lg:items-start lg:text-left">
               <Link className="inline-block mb-4" to="/">
-                <span className="text-4xl md:text-5xl font-bold text-[#c4521a] font-[family-name:var(--font-medieval-sharp)] tracking-wider">
+                <span className="text-4xl md:text-5xl font-bold text-[#ff8800] font-[family-name:var(--font-medieval-sharp)] tracking-wider">
                   UTOPIA 2K26
                 </span>
               </Link>
