@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Card } from "@/components/ui/card";
 import {
   motion,
   AnimatePresence,
@@ -477,14 +476,24 @@ const Index = () => {
         </div>
 
         <div
-          id="faq"
-          data-section-id="faq"
+          id="sponsors"
+          data-section-id="sponsors"
           className="w-full"
         >
           {/* Section Divider */}
           <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
+          <Sponsor />
+        </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          id="faq"
+          data-section-id="faq"
+          className="w-full pb-20 md:pb-32"
+        >
+          {/* Section Divider */}
+          <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
+
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-10 md:mb-16">
               <ScrollReveal>
                 <span className="text-[10px] font-sans uppercase tracking-[0.6em] text-primary">
@@ -498,42 +507,21 @@ const Index = () => {
               </ScrollReveal>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-col gap-8 md:gap-12">
               {faqs.map((faq, index) => (
                 <ScrollReveal key={index} delay={index * 0.1}>
-                  <Card className={[
-                    "group relative p-6 h-full transition-all duration-500 ease-out",
-                    "bg-card/50 backdrop-blur-sm border border-border",
-                    "hover:-translate-y-2",
-                    "hover:border-primary/40",
-                    "hover:shadow-[0_16px_48px_-8px_hsl(var(--primary)/0.18),0_4px_16px_-4px_hsl(var(--primary)/0.10)]",
-                  ].join(" ")}>
-                    <h3 className="text-lg font-serif font-semibold mb-3 text-foreground transition-colors duration-300 group-hover:text-primary">
+                  <div className="text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-serif font-bold text-foreground mb-3">
                       {faq.question}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                       {faq.answer}
                     </p>
-                    {/* Bottom accent bar — grows left-to-right on hover */}
-                    <div
-                      aria-hidden="true"
-                      className="absolute bottom-0 left-0 h-[2.5px] w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full"
-                    />
-                  </Card>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
           </div>
-        </div>
-
-        <div
-          id="sponsors"
-          data-section-id="sponsors"
-          className="w-full"
-        >
-          {/* Section Divider */}
-          <div className="my-6 md:my-16 h-px w-full bg-border/50 max-w-7xl mx-auto" />
-          <Sponsor />
         </div>
 
       </main>
