@@ -71,7 +71,7 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
             transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
             className="overflow-hidden"
           >
-            <p className="pb-4 text-base md:text-lg text-muted-foreground leading-relaxed text-left border-t border-primary/10 pt-4">
+            <p className="mt-3 md:mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed text-left border-t border-primary/10 pt-4 pb-4">
               {answer}
             </p>
           </motion.div>

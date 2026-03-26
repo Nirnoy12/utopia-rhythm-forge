@@ -127,7 +127,7 @@ const Contact = () => {
 
           {/* Subtitle */}
           <div className="text-center mb-16">
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="mt-3 md:mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed mx-auto">
               Have questions about Utopia? Reach out to us through any of the
               channels below and our team will get back to you as soon as
               possible.

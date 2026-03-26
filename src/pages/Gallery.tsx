@@ -78,7 +78,7 @@ const Gallery = () => {
             transition={{ duration: 6, repeat: Infinity }}
           />
 
-          <p className="mt-10 text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="mt-3 md:mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed mx-auto">
             A visual journey through moments, culture, and creativity.
           </p>
         </section>
