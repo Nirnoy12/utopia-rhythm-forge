@@ -50,7 +50,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="relative bg-background min-h-screen overflow-hidden">
+    <div className="relative bg-background min-h-screen overflow-hidden flex flex-col justify-center items-center">
       {/* CSS keyframe definitions – zero JS cost at runtime */}
       <style>{`
         @keyframes marquee-left {
@@ -67,30 +67,32 @@ const Gallery = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2 }}
-        className="pt-24"
+        className="w-full flex flex-col justify-center items-center py-12"
       >
-        <section className="px-4 sm:px-10 lg:px-20 py-20 text-center">
+        {/* Added pt-8 here to give the top of the section more breathing room */}
+        <section className="px-4 sm:px-10 lg:px-20 pb-12 pt-8 flex flex-col items-center text-center">
           <motion.img
             src="/assets/Gallery.webp"
             alt="Gallery"
-            className="w-full max-w-6xl mx-auto object-contain drop-shadow-2xl"
+            // Added mt-8 to specifically lower the image, and adjusted mb-10 for the gap below it
+            className="w-full max-w-6xl mx-auto object-contain drop-shadow-2xl mt-8 mb-10"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity }}
           />
 
-          <p className="mt-3 md:mt-6 max-w-2xl text-base md:text-lg font-sans text-muted-foreground leading-relaxed mx-auto">
-            A visual journey through moments, culture, and creativity.
+          <p className="max-w-4xl text-xl md:text-3xl text-slate-600 dark:text-slate-400 font-bold leading-relaxed mx-auto">
+            A visual journey through moments, culture, and creativity — where every frame captures the spirit of innovation and tradition coming together.
           </p>
         </section>
 
-        <section className="flex flex-col gap-12 px-4 sm:px-10 lg:px-20 py-16">
+        <section className="flex flex-col gap-12 w-full px-4 sm:px-10 lg:px-20 py-8">
           {renderRow("left", 0)}   {/* Images 1–10 */}
           {renderRow("right", 10)} {/* Images 11–20 */}
           {renderRow("left", 20)}  {/* Images 21–30 */}
         </section>
 
-        <section className="py-20 text-center px-4 sm:px-10 lg:px-20">
-          <p className="text-2xl sm:text-3xl font-serif italic text-muted-foreground">
+        <section className="pt-12 pb-8 text-center px-4 sm:px-10 lg:px-20">
+          <p className="text-2xl sm:text-3xl font-serif italic text-muted-foreground mx-auto">
             "Moments fade, but the stories they create live forever."
           </p>
         </section>
