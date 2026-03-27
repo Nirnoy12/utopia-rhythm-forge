@@ -417,6 +417,32 @@
 
 /* ===== SECTION 3: FOOTER LAYOUT FIXES ===== */
 @media (max-width: 768px) {
+    /* ===== FIX NAVBAR LOGOS FOR MOBILE ===== */
+    @media (max-width: 768px) {
+        /* Target the mobile header container */
+        .styles-module-scss-module__EhpkfW__mobileHeader,
+        .styles-module-scss-module__EhpkfW__header {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important; /* Pushes logos to left and menu to right */
+            height: 60px !important; /* Adjust based on your preferred navbar height */
+        }
+    
+        /* Target the logo container specifically */
+        /* Adjust these class names if your HTML uses different ones for the logo wrapper */
+        nav .flex.items-center {
+            display: flex !important;
+            gap: 10px !important; /* Space between the two logos */
+        }
+    
+        nav img {
+            height: 40px !important; /* Force a visible size for mobile */
+            width: auto !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+    }
     footer {
         min-height: 100% !important;
         width: 100% !important;
