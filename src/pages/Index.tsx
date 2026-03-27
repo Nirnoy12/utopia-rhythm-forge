@@ -556,6 +556,18 @@ const Index = () => {
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-10 md:mb-16">
               <ScrollReveal>
+                <div className="mt-3 text-sm md:text-base font-sans text-muted-foreground">
+                  Interested in production? Contact us,{" "}
+                  <Link
+                    to="/production"
+                    className="underline underline-offset-4 text-muted-foreground hover:text-foreground"
+                  >
+                    click here
+                  </Link>
+                  .
+                </div>
+              </ScrollReveal>
+              <ScrollReveal>
                 <span className="text-[10px] font-sans uppercase tracking-[0.6em] text-primary">
                   FAQ
                 </span>
