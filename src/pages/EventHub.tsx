@@ -6,7 +6,7 @@ const day2bg = "/assets/gallery-3.jpg";
 
 const EventHub = () => {
   return (
-    <div className="min-h-screen w-full bg-[#f5efe6] flex flex-col items-center justify-center font-sans px-4 py-20 relative overflow-hidden">
+    <div className="min-h-screen w-full bg-[#f5efe6] flex flex-col items-center justify-center font-sans text-sm md:text-base px-4 py-20 relative overflow-hidden">
       
       {/* Decorative background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-[#b64a2b]/10 blur-[120px] rounded-full pointer-events-none" />
@@ -25,7 +25,7 @@ const EventHub = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#3b2a1f] drop-shadow-lg"
+          className="text-3xl md:text-5xl lg:text-6xl font-sans font-bold tracking-tight text-[#3b2a1f] drop-shadow-lg"
         >
           Which day do you want to visit first?
         </motion.h1>
@@ -62,7 +62,7 @@ const EventHub = () => {
               <h2 className="text-4xl md:text-6xl font-sans font-black text-white transform transition-transform duration-500 group-hover:-translate-y-2">
                 DAY 01
               </h2>
-              <p className="mt-2 text-white/80 font-serif italic text-lg md:text-xl transform transition-transform duration-500 group-hover:-translate-y-2">
+              <p className="mt-2 text-white/80 font-sans italic text-lg md:text-xl transform transition-transform duration-500 group-hover:-translate-y-2">
                 Roots & Rhythm
               </p>
             </div>
@@ -97,7 +97,7 @@ const EventHub = () => {
               <h2 className="text-4xl md:text-6xl font-sans font-black text-white transform transition-transform duration-500 group-hover:-translate-y-2">
                 DAY 02
               </h2>
-              <p className="mt-2 text-white/80 font-serif italic text-lg md:text-xl transform transition-transform duration-500 group-hover:-translate-y-2">
+              <p className="mt-2 text-white/80 font-sans italic text-lg md:text-xl transform transition-transform duration-500 group-hover:-translate-y-2">
                 The Roster
               </p>
             </div>

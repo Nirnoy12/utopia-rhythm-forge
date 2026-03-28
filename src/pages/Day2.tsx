@@ -245,7 +245,7 @@ const Day2 = () => {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="relative bg-[#1A1814] w-full min-h-screen md:h-screen overflow-x-hidden md:overflow-hidden font-sans text-[#2C2A25]">
+    <div ref={containerRef} className="relative bg-[#1A1814] w-full min-h-screen md:h-screen overflow-x-hidden md:overflow-hidden font-sans text-[#2C2A25] text-sm md:text-base">
       
       {/* --- BACKGROUND --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -262,7 +262,7 @@ const Day2 = () => {
         className="fixed md:absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none flex flex-col items-center text-center mix-blend-multiply opacity-70 w-full px-4"
       >
         <h1 className="text-sm md:text-lg font-sans tracking-[0.6em] text-[#2C2A25] uppercase mb-4">The Roster</h1>
-        <p className="text-5xl md:text-7xl font-serif italic text-[#2C2A25]">Day 02</p>
+        <p className="text-5xl md:text-7xl font-sans italic text-[#2C2A25]">Day 02</p>
       </div>
 
       {/* --- CARDS CONTAINER --- */}
@@ -294,7 +294,7 @@ const Day2 = () => {
                 <span className="text-[10px] md:text-xs font-sans font-bold tracking-[0.3em] uppercase mb-1 text-[#b64a2b]">
                   {artist.time}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-serif font-black tracking-tight text-[#3b2a1f] mb-1">
+                <h2 className="text-2xl md:text-3xl font-sans font-black tracking-tight text-[#3b2a1f] mb-1">
                   {artist.name}
                 </h2>
                 <p className="text-xs md:text-sm font-sans text-[#3b2a1f]/70 font-medium italic mb-6">
@@ -342,7 +342,7 @@ const Day2 = () => {
           </p>
           <Link 
             to="/day-1"
-            className="inline-flex items-center gap-4 text-2xl md:text-4xl font-serif font-bold text-white hover:text-[#B85741] transition-colors duration-300 drop-shadow-lg cursor-pointer"
+            className="inline-flex items-center gap-4 text-2xl md:text-4xl font-sans font-bold text-white hover:text-[#B85741] transition-colors duration-300 drop-shadow-lg cursor-pointer"
           >
             <span className="group-hover:-translate-x-4 transition-transform duration-300">←</span>
             <span>Return to Day 01</span>
@@ -379,10 +379,10 @@ const Day2 = () => {
             <span className="block text-[#b64a2b] text-xs font-bold tracking-[0.3em] uppercase mb-2">
               {selectedArtist.time}
             </span>
-            <h3 className="text-3xl md:text-4xl font-serif font-bold mb-1">
+            <h3 className="text-3xl md:text-4xl font-sans font-bold mb-1">
               {selectedArtist.name}
             </h3>
-            <p className="text-white/70 italic font-serif mb-6 text-sm md:text-base">
+            <p className="text-white/70 italic font-sans mb-6 text-sm md:text-base">
               {selectedArtist.role}
             </p>
             

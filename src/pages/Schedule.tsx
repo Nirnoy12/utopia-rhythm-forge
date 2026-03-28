@@ -153,7 +153,7 @@ const UtopiaFestival: React.FC = () => {
 
         .utopia-body { 
           margin: 0; min-height: 100vh; width: 100vw; overflow-x: hidden; 
-          background: #f5efe6; color: #3b2a1f; font-family: 'Cormorant Garamond', serif;
+          background: #f5efe6; color: #3b2a1f; font-family: sans-serif;
           display: flex;
           flex-direction: column;
         }
@@ -241,7 +241,7 @@ const UtopiaFestival: React.FC = () => {
 
         /* ---- Day Labels ---- */
         .day-label {
-          font-family: Cinzel;
+          font-family: sans-serif;
           font-size: 11px;
           letter-spacing: 0.4em;
           color: #b64a2b;
@@ -362,7 +362,7 @@ const UtopiaFestival: React.FC = () => {
         .card-desc { max-height: 0; opacity: 0; transition: 1s; overflow: hidden; }
         .expanded-row .card-desc { max-height: 300px; opacity: 1; margin-top: 20px; border-top: 1px solid rgba(59,42,31,0.1); padding-top: 20px; }
 
-        .sitar-label { font-family: Cinzel; font-size: 9px; letter-spacing: 0.5em; color: #b64a2b; margin-bottom: 20px; }
+        .sitar-label { font-family: sans-serif; font-size: 9px; letter-spacing: 0.5em; color: #b64a2b; margin-bottom: 20px; }
 
         .progress-indicator { display: flex; gap: 6px; margin-top: 15px; }
         .dot { width: 5px; height: 5px; border-radius: 50%; background: #d0c0a8; transition: 0.2s; }
@@ -420,10 +420,10 @@ const UtopiaFestival: React.FC = () => {
         }
       `}</style>
 
-      <div className={`utopia-body ${!isExpanded ? 'overflow-hidden' : 'overflow-y-auto overflow-x-hidden'}`}>
+      <div className={`utopia-body text-sm md:text-base font-sans ${!isExpanded ? 'overflow-hidden' : 'overflow-y-auto overflow-x-hidden'}`}>
         {/* Instruction Text — fixed overlay above sitar */}
         <div className={`fixed inset-x-0 top-20 flex flex-col items-center pointer-events-none transition-opacity duration-1000 z-[200] ${revealedCount > 0 ? 'opacity-0' : 'opacity-100'}`}>
-          <div className="hidden md:block text-[#b64a2b] font-serif text-3xl md:text-5xl font-bold mb-3 drop-shadow-sm text-center">
+          <div className="hidden md:block text-[#b64a2b] font-sans text-3xl md:text-5xl font-bold mb-3 drop-shadow-sm text-center">
             Play the Instrument
           </div>
 
@@ -439,7 +439,7 @@ const UtopiaFestival: React.FC = () => {
           {/* LEFT: Day 1 Timeline */}
           <div id="day1-panel" className={revealedCount > 0 ? 'show-timeline' : ''}>
             <div className={`day-label ${revealedCount > 0 ? 'show' : ''}`}>DAY 01 · MARCH 28</div>
-            <div className="md:hidden text-[#b64a2b] font-serif text-4xl font-bold mb-8 text-center drop-shadow-sm">
+            <div className="md:hidden text-[#b64a2b] font-sans text-4xl font-bold mb-8 text-center drop-shadow-sm">
               Day 1 Schedule
             </div>
             {DAY1_EVENTS.map((ev, i) => (
@@ -449,7 +449,7 @@ const UtopiaFestival: React.FC = () => {
                 style={{ '--c': ev.col, '--speed': `${lastSpeed}s` } as any}
               >
                 <div className="ev-card">
-                  <div style={{ fontFamily: 'Cinzel', fontSize: '10px', color: ev.col, letterSpacing: '0.2em' }}>{ev.time}</div>
+                  <div style={{ fontFamily: 'sans-serif', fontSize: '10px', color: ev.col, letterSpacing: '0.2em' }}>{ev.time}</div>
                   <div style={{ fontSize: '22px', margin: '5px 0' }}>{ev.title}</div>
                   <div style={{ fontSize: '14px', fontStyle: 'italic', opacity: 0.5 }}>{ev.sub}</div>
                   <div className="card-desc">{ev.desc}</div>
@@ -530,7 +530,7 @@ const UtopiaFestival: React.FC = () => {
           {/* RIGHT: Day 2 Timeline */}
           <div id="day2-panel" className={revealedCount > 0 ? 'show-timeline' : ''}>
             <div className={`day-label ${revealedCount > 0 ? 'show' : ''}`}>DAY 02 · MARCH 29</div>
-            <div className="md:hidden text-[#b64a2b] font-serif text-4xl font-bold mb-8 text-center drop-shadow-sm">
+            <div className="md:hidden text-[#b64a2b] font-sans text-4xl font-bold mb-8 text-center drop-shadow-sm">
               Day 2 Schedule
             </div>
             {DAY2_EVENTS.map((ev, i) => (
@@ -540,7 +540,7 @@ const UtopiaFestival: React.FC = () => {
                 style={{ '--c': ev.col, '--speed': `${lastSpeed}s` } as any}
               >
                 <div className="ev-card">
-                  <div style={{ fontFamily: 'Cinzel', fontSize: '10px', color: ev.col, letterSpacing: '0.2em' }}>{ev.time}</div>
+                  <div style={{ fontFamily: 'sans-serif', fontSize: '10px', color: ev.col, letterSpacing: '0.2em' }}>{ev.time}</div>
                   <div style={{ fontSize: '22px', margin: '5px 0' }}>{ev.title}</div>
                   <div style={{ fontSize: '14px', fontStyle: 'italic', opacity: 0.5 }}>{ev.sub}</div>
                   <div className="card-desc">{ev.desc}</div>
