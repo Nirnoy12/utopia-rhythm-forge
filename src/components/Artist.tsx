@@ -1,6 +1,6 @@
 import React from "react";
-const artist1 = "/assets/sonic.png";
-const artist2 = "/assets/somlata.png";
+const artist1 = "/assets/1.png";
+const artist2 = "/assets/2.png";
 
 import "../components/css/artist.css";
 import ScrollReveal from "./ScrollReveal";
