@@ -12,30 +12,41 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Real event data for Day 2 (16th March onwards)
 const artistsDay2 = [
+  [
   {
-    name: "Rhythm Rumble",
-    role: "Dance Competition — 3rd & 4th Year",
-    time: "12:50 PM – 1:40 PM · 16th March",
+    name: "Band Performances",
+    role: "Live Music Showcase",
+    time: "To Be Announced",
     image: gallery1,
-    registerLink: "https://chat.whatsapp.com/FBqg6KIwnEd3kJxHkPzH8D?mode=gi_t",
-    description: "Feel the rhythm, own the stage! Rhythm Rumble is the ultimate Dance Competition of UTOPIA 2K26 for 3rd & 4th year students. Categories: Solo (max 3 min), Duo (max 5 min), Group (max 6 min). 🏆 Exciting prizes awarded live on stage!\n\nSPOC: Saptami Roy Chowdhury — 8348830666\nContacts: Shevanti Nandi – 6291397376 | Rishita Saha – 6290887016 | Nayna Jha – 8420643348 | Ahona Bose – 9830318312\n\nVenue: C-Block (C-302)",
+    registerLink: "",
+    description: "Experience electrifying live performances by talented bands. Get ready for a musical vibe filled with energy, rhythm, and crowd interaction.\n\nVenue: Main Stage",
   },
   {
-    name: "Singing Auditions",
-    role: "Vocal Competition — Open to All Years",
-    time: "1:40 PM · 16th March",
-    image: gallery5,
-    registerLink: "https://forms.gle/SmApWu72RwcSMkxNA",
-    description: "Unleash your voice! The Singing Auditions of UTOPIA 2K26 are open to all years. Fill out the registration form and join the WhatsApp group (link shared after registration).\n\nDate: 16th March 2026 · Time: from 1:40 PM\nVenue: C-Block (venue details in participant's group)\n\nContacts: Soham Das – 9038930100 | Subham Mondal – 9330537914\n\n⚠️ Joining the WhatsApp group is mandatory after filling the form.",
+    name: "Committee Dance Performances",
+    role: "Organizing Team Special Acts",
+    time: "To Be Announced",
+    image: gallery1,
+    registerLink: "",
+    description: "Watch the organizing committee set the stage on fire with their special dance performances. A blend of creativity, coordination, and entertainment.\n\nVenue: Main Stage",
   },
   {
-    name: "Vogue Vista",
-    role: "Fashion Show Auditions",
-    time: "1:30 PM Onwards · 20th March",
-    image: gallery3,
-    registerLink: "https://forms.gle/4Ng8TrAhzg3KDzs27",
-    description: "Own the ramp. Own the spotlight. UTOPIA 2K26 presents Vogue Vista — the official Fashion Show, a celebration of style, confidence, and attitude.\n\nDate: 20th March 2026 · Time: 1:30 PM Onwards\nVenue: To be informed in the WhatsApp group\n\nRules & Guidelines: https://tinyurl.com/vogue-vista\nWhatsApp Group: https://chat.whatsapp.com/KxXzKWQi3MaDJaosEJFkgX\n\nContacts: Ariyen Sk – 9674566385 | Krittika Choudhuri – 9330803492 | Rishita Saha – 6290887016",
+    name: "Magic Show",
+    role: "Live Illusion Performance",
+    time: "To Be Announced",
+    image: gallery1,
+    registerLink: "",
+    description: "Step into a world of illusion and wonder with a thrilling magic show. Expect mind-bending tricks and unforgettable moments.\n\nVenue: Main Stage",
   },
+  {
+    name: "Guest Artist Performance: Somlata and the Aces",
+    role: "Live Concert",
+    time: "To Be Announced",
+    image: gallery1,
+    registerLink: "",
+    description: "Enjoy a spectacular live concert by Somlata and the Aces, delivering soulful music and an unforgettable stage experience.\n\nVenue: Main Stage",
+  }
+]
+ 
 ];
 
 
@@ -48,7 +59,7 @@ const Day2 = () => {
   const wrappersRef = useRef<(HTMLDivElement | null)[]>([]);
 
   // STATE FOR THE MODAL
-  const [selectedArtist, setSelectedArtist] = useState<typeof artistsDay2[0] | null>(null);
+  const [selectedArtist, setSelectedArtist] = useState<typeof artistsDay2[0][0] | null>(null);
 
   useGSAP(() => {
     const container = containerRef.current;
@@ -115,7 +126,7 @@ const Day2 = () => {
       resizeCanvas();
       images[0].onload = () => renderFrame(0);
 
-      const totalPages = Math.ceil(artistsDay2.length / 2);
+      const totalPages = Math.ceil(artistsDay2.flat().length / 2);
 
       cardsRef.current.forEach((card, index) => {
         if (!card) return;
@@ -270,7 +281,7 @@ const Day2 = () => {
         
         <div className="h-[100vh] w-full block md:hidden"></div>
 
-        {artistsDay2.map((artist, index) => (
+        {artistsDay2.flat().map((artist, index) => (
           <div 
             key={index}
             ref={(el) => (wrappersRef.current[index] = el)}
@@ -302,18 +313,10 @@ const Day2 = () => {
                 </p>
 
                 <div className="flex w-full gap-2 md:gap-3 justify-center mt-auto">
-                  <a
-                    href={artist.registerLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-[#b64a2b] hover:bg-[#8B2635] text-white text-[9px] md:text-[10px] font-bold tracking-[0.15em] uppercase py-3 md:py-3.5 rounded-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer text-center"
-                  >
-                    Register
-                  </a>
                   {/* ADDED onClick HANDLER HERE */}
                   <button 
                     onClick={() => setSelectedArtist(artist)}
-                    className="flex-1 border border-[#3b2a1f]/30 hover:border-[#3b2a1f] text-[#3b2a1f] text-[9px] md:text-[10px] font-bold tracking-[0.15em] uppercase py-3 md:py-3.5 rounded-sm transition-all duration-300 bg-transparent hover:bg-[#3b2a1f]/5 cursor-pointer"
+                    className="w-full border border-[#3b2a1f]/30 hover:border-[#3b2a1f] text-[#3b2a1f] text-[9px] md:text-[10px] font-bold tracking-[0.15em] uppercase py-3 md:py-3.5 rounded-sm transition-all duration-300 bg-transparent hover:bg-[#3b2a1f]/5 cursor-pointer"
                   >
                     Know More
                   </button>

@@ -128,18 +128,27 @@ const LogoPieces = () => {
 const Index = () => {
   const navigate = useNavigate();
   const faqs = [
-    {
-      question: "How can I register for MCKVIE Hackathon 2K26?",
-      answer: "You can register through the official event portal.",
-    },
-    {
-      question: "Can I participate across different departments?",
-      answer: "Yes, participation across departments and years is allowed.",
-    },
-    {
-      question: "What is the last day to register?",
-      answer: "The last date for registration is October 9th, 2025.",
-    },
+
+{
+  question: "Can I participate across different departments?",
+  answer: "Yes, participants from different departments and academic years are allowed.",
+},
+{
+  question: "What is the last date to register?",
+  answer: "The last date for registration is October 9, 2025.",
+},
+{
+  question: "How long will the entry gate remain open?",
+  answer: "The entry gate timings will be announced by the organizers. Please arrive early to avoid any inconvenience.",
+},
+{
+  question: "Until what time will the entry gate remain open?",
+  answer: "The entry gate will remain open until the scheduled closing time set by the organizers. Late entry may not be permitted.",
+},
+{
+  question: "Can we bring our friends or family members to the event?",
+  answer: "Yes, friends and family members are welcome to attend the event. However, please ensure that they also have valid tickets or registrations if required.",
+}
   ];
   const [showCustomLoader, setShowCustomLoader] = useState(() => {
     return localStorage.getItem("hasVisitedBefore") !== "true";
@@ -304,8 +313,8 @@ const Index = () => {
               <source src="/playback.mp4" type="video/mp4" />
             </video>
           </div>
-          <div className="relative flex flex-col items-center justify-center z-50">
-            <div className="w-[250px] md:w-[600px] relative">
+          <div className="relative flex flex-col items-center justify-center z-50 h-full">
+            <div className="w-[200px] xs:w-[240px] sm:w-[340px] md:w-[600px] relative flex items-center justify-center">
               {/* Animated glow behind logo */}
               <div 
                 className="absolute -inset-8 md:-inset-16 rounded-full pointer-events-none"
@@ -316,9 +325,9 @@ const Index = () => {
                 }}
               />
               <img 
-                src="/Navbar_Logo.png" 
+                src="/text 1.png" 
                 alt="Utopia Logo" 
-                className="relative w-full h-auto object-contain drop-shadow-lg pointer-events-none select-none"
+                className="relative w-full max-w-[300px] sm:max-w-[380px] md:max-w-[600px] h-auto object-contain drop-shadow-lg pointer-events-none select-none p-4 sm:p-6 md:p-12 mx-auto"
                 draggable={false}
               />
             </div>
@@ -471,7 +480,7 @@ const Index = () => {
           </div>
 
           <div className="w-full md:w-[50%] lg:w-[55%] flex justify-center items-center relative z-10 order-1 md:order-2">
-            <div className="relative group w-full max-w-[220px] sm:max-w-[280px] md:max-w-sm lg:max-w-md">
+            <div className="relative group w-full max-w-[160px] xs:max-w-[200px] sm:max-w-[260px] md:max-w-sm lg:max-w-md">
               {/* Subtle outer glow that pulses gently */}
               <motion.div
                 animate={{
@@ -490,7 +499,7 @@ const Index = () => {
               <img
                 src={img1}
                 alt="Utopia Cultural Art"
-                className="w-full h-auto object-contain relative z-10 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2 drop-shadow-2xl"
+                className="w-full h-auto object-contain relative z-10 transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-translate-y-2 drop-shadow-2xl mx-auto"
                 style={{ animation: "floatArtist 6s ease-in-out infinite", filter: "contrast(1.05) brightness(1.02) saturate(1.1)" }}
               />
             </div>

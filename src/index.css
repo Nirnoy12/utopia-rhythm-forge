@@ -7,7 +7,7 @@
 @layer base {
   :root {
     /* Core */
-    --background: 32 100% 97%;
+    /* --background: 32 100% 97%; */
     --foreground: 0 0% 7%;
 
     --card: 32 100% 97%;
@@ -109,7 +109,7 @@
 
 /* Override: text-primary elements use the serif display font */
 .text-primary {
-  font-family: cursive;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Smooth scrolling container */

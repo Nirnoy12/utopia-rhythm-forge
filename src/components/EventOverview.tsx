@@ -13,31 +13,24 @@ interface OffStageEvent {
 const OFF_STAGE_EVENTS: OffStageEvent[] = [
   {
     index: "01",
-    title: "Photography Odyssey",
+    title: "Non - Fire Cooking",
     description:
-      "Capture the living soul of Utopia through your lens. Open to all skill levels — from candid street shots to composed cultural portraits.",
-    tag: "Visual Arts",
+      "Ditch the heat and let your imagination take the lead! Join us for a unique culinary experience where we turn fresh, vibrant ingredients into stunning dishes using only assembly, seasoning, and style. It’s safe, simple, and proves that the most delicious masterpieces are served chilled.",
+    tag: "Create magic without the flame",
   },
   {
     index: "02",
-    title: "Rangoli Royale",
+    title: "Cosplay Competition",
     description:
-      "A vibrant floor-art competition that blends age-old tradition with contemporary creativity. Colours, patterns, and stories told without words.",
-    tag: "Folk Art",
+      "Bring your favorite characters to life and transform the campus into a world of fantasy! Whether you're a crafting pro or a first-time cosplayer, join us to showcase your best costumes, celebrate fandom, and compete for the ultimate title of Best in Show. It’s time to suit up and let your alter ego lead the way!",
+    tag: "Become the character you love.",
   },
   {
     index: "03",
-    title: "Slam Poetry Arena",
+    title: "Art from the West",
     description:
-      "Words as instruments of wonder. Step up to the mic and let your verses cut through the air — raw, rhythmic, and unforgettable.",
-    tag: "Literary",
-  },
-  {
-    index: "04",
-    title: "Mehendi Masters",
-    description:
-      "Intricate henna artistry celebrating the beauty and craftsmanship of Indian heritage. Compete, admire, and wear your art with pride.",
-    tag: "Craft",
+      "Turn everyday trash into extraordinary treasure at our Art from Waste challenge! Unleash your creativity to transform discarded items into eco-friendly masterpieces, proving that sustainability and high art go hand-in-hand. Join us to redefine junk and showcase your vision for a greener, more imaginative world.",
+    tag: "Turn waste into wonder.",
   },
 ];
 
@@ -51,7 +44,7 @@ const EventOverview = () => {
       id="off-stage-events"
       className="relative py-12 px-4 md:py-24 md:px-6 lg:px-20 bg-background overflow-hidden"
     >
-      {/* Ambient radial glow — purely decorative, pointer-events off */}
+      {/* Background Effects */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute right-0 top-0 w-[55vw] h-[55vh] opacity-[0.07]"
@@ -70,7 +63,7 @@ const EventOverview = () => {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* ── Section Header ───────────────────────────────────────────────── */}
+        {/* Header */}
         <div className="mb-8 md:mb-16">
           <ScrollReveal>
             <span className="text-[10px] font-sans uppercase tracking-[0.6em] text-primary">
@@ -93,7 +86,6 @@ const EventOverview = () => {
             </p>
           </ScrollReveal>
 
-          {/* Ornamental divider */}
           <ScrollReveal delay={0.22}>
             <div className="mt-6 md:mt-10 flex items-center gap-4">
               <div className="h-px flex-1 bg-border max-w-[80px]" />
@@ -105,8 +97,8 @@ const EventOverview = () => {
           </ScrollReveal>
         </div>
 
-        {/* ── Cards Grid ───────────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
+        {/* Cards Grid (FIXED HERE ✅) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
           {OFF_STAGE_EVENTS.map((event, i) => (
             <ScrollReveal key={event.index} delay={i * 0.07}>
               <div
@@ -121,72 +113,45 @@ const EventOverview = () => {
                   "hover:shadow-[0_16px_48px_-8px_hsl(var(--primary)/0.18),0_4px_16px_-4px_hsl(var(--primary)/0.10)]",
                 ].join(" ")}
               >
-                {/* Numbered index */}
                 <span className="block font-sans text-[11px] font-semibold uppercase tracking-[0.45em] text-gold mb-6 transition-colors duration-300 group-hover:text-primary">
                   {event.index}
                 </span>
 
-                {/* Tag badge */}
                 <span className="inline-block self-start mb-4 px-3 py-1 rounded-full border border-border text-[9px] font-sans uppercase tracking-[0.35em] text-muted-foreground bg-muted transition-all duration-300 group-hover:border-primary/30 group-hover:text-primary/80">
                   {event.tag}
                 </span>
 
-                {/* Title */}
                 <h3 className="font-serif text-xl md:text-2xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground mb-4 transition-colors duration-300 group-hover:text-primary">
                   {event.title}
                 </h3>
 
-                {/* Description */}
                 <p className="font-sans text-sm text-muted-foreground leading-relaxed flex-1">
                   {event.description}
                 </p>
 
-                {/* Bottom accent bar — grows left-to-right on hover */}
-                <div
-                  aria-hidden="true"
-                  className="absolute bottom-0 left-0 h-[2.5px] w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full"
-                />
+                <div className="absolute bottom-0 left-0 h-[2.5px] w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full" />
               </div>
             </ScrollReveal>
           ))}
         </div>
 
-        {/* ── CTA Button ───────────────────────────────────────────────────── */}
+        {/* CTA */}
         <ScrollReveal delay={0.32}>
           <div className="mt-10 md:mt-16 flex justify-center">
             <button
               type="button"
               onClick={() => navigate("/event")}
-              className={[
-                "group relative inline-flex items-center gap-3",
-                "px-10 py-4",
-                "bg-primary text-primary-foreground",
-                "font-sans text-[11px] font-bold uppercase tracking-[0.25em]",
-                "rounded-sm overflow-hidden",
-                "transition-all duration-300",
-                "hover:shadow-[0_8px_32px_hsl(var(--primary)/0.45)]",
-                "hover:-translate-y-1",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-              ].join(" ")}
+              className="group relative inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground font-sans text-[11px] font-bold uppercase tracking-[0.25em] rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_8px_32px_hsl(var(--primary)/0.45)] hover:-translate-y-1"
             >
-              {/* Animated fill layer */}
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 bg-[hsl(var(--crimson))] translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
-              />
-
-              {/* Label */}
+              <span className="absolute inset-0 bg-[hsl(var(--crimson))] translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0" />
               <span className="relative z-10">View All Events</span>
 
-              {/* Arrow icon */}
               <svg
-                aria-hidden="true"
                 className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2.5}
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"

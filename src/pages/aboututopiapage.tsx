@@ -78,7 +78,7 @@ const AboutUtopiaPage = () => {
               color: "border-orange-400",
             },
             {
-              src: "/assets/NAAC.png",
+              src: "/assets/naac1.png",
               label: "NAAC A Grade",
               color: "border-blue-400",
             },
