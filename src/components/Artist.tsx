@@ -123,11 +123,10 @@ const Artist: React.FC<ArtistProps> = ({ flag = 1 }) => {
             <section className="py-6 px-6 md:px-0 relative">
               <div className="max-w-7xl mx-auto">
                 <ScrollReveal delay={0.1}>
-                  <h2 className="text-[8vw] md:text-[3vw] font-serif leading-[0.95] tracking-[-0.02em]">
+                  <h2 className="font-extrabold text-[8vw] md:text-[3vw] font-serif leading-[0.95] tracking-[-0.02em]">
                     Our Day 1 Fest's Artist{" "}
-                    {/* <span className="text-primary italic">M-SONIC</span> in{" "} */}
-                    <span className="text-neon-pink italic">Utopia 2026</span>.
-                  </h2>
+                    {/* <span className="text-primary italic font-extrabold">M-SONIC</span> in{" "} */}
+                    <span className="text-neon-pink italic font-extrabold">Utopia 2K26</span>.                  </h2>
                 </ScrollReveal>
               </div>
             </section>
@@ -144,10 +143,10 @@ const Artist: React.FC<ArtistProps> = ({ flag = 1 }) => {
             <section className="py-6 px-6 md:px-0 relative">
               <div className="max-w-7xl mx-auto">
                 <ScrollReveal delay={0.1}>
-                  <h2 className="text-[8vw] md:text-[3vw] font-serif leading-[0.95] tracking-[-0.02em]">
+                  <h2 className="font-extrabold text-[8vw] md:text-[3vw] font-serif leading-[0.95] tracking-[-0.02em]">
                     Our Day 2 Fest's Artist{" "}
-                    {/* <span className="text-primary italic">Somlata & The Aces</span> in{" "} */}
-                    <span className="text-neon-pink italic">Utopia 2026</span>.
+                    {/* <span className="text-primary italic font-extrabold">Somlata & The Aces</span> in{" "} */}
+                    <span className="text-neon-pink italic font-extrabold">Utopia 2K26</span>.
                   </h2>
                 </ScrollReveal>
               </div>

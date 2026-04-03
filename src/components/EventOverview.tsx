@@ -15,22 +15,22 @@ const OFF_STAGE_EVENTS: OffStageEvent[] = [
     index: "01",
     title: "Non - Fire Cooking",
     description:
-      "Ditch the heat and let your imagination take the lead! Join us for a unique culinary experience where we turn fresh, vibrant ingredients into stunning dishes using only assembly, seasoning, and style. It’s safe, simple, and proves that the most delicious masterpieces are served chilled.",
-    tag: "Create magic without the flame",
+      "Description: Ditch the stove and let your creativity take over in this ultimate test of culinary innovation. Participants will craft mouth-watering dishes using only raw ingredients, showcasing their plating skills and unique flavor combinations. Bring your best recipes and prove that you don't need a flame to create a masterpiece.",
+    tag: "Raw & Relish — Unleash your inner chef, unplugged.",
   },
   {
     index: "02",
     title: "Cosplay Competition",
     description:
-      "Bring your favorite characters to life and transform the campus into a world of fantasy! Whether you're a crafting pro or a first-time cosplayer, join us to showcase your best costumes, celebrate fandom, and compete for the ultimate title of Best in Show. It’s time to suit up and let your alter ego lead the way!",
-    tag: "Become the character you love.",
+      "Transform into your most beloved fictional characters from anime, movies, comic books or video games for a day. This is your chance to showcase your costume craftsmanship, makeup skills and dedication to your favorite fandoms. Strut your stuff, embody the persona and leave the Utopia audience completely starstruck!",
+    tag: "Fandom Forge — Bring your favorite worlds to life.",
   },
   {
     index: "03",
-    title: "Art from the West",
+    title: "Best Out of Waste",
     description:
-      "Turn everyday trash into extraordinary treasure at our Art from Waste challenge! Unleash your creativity to transform discarded items into eco-friendly masterpieces, proving that sustainability and high art go hand-in-hand. Join us to redefine junk and showcase your vision for a greener, more imaginative world.",
-    tag: "Turn waste into wonder.",
+      " Turn everyday discarded items and scrap materials into stunning pieces of art, utility products or innovative accessories. This event challenges your imagination and commitment to the environment by proving that one person's trash is truly another's treasure. Show us how you can innovate and elevate the ordinary into the extraordinary!",
+    tag: "Scrap Sculptors — Crafting magic from the discarded.",
   },
 ];
 
