@@ -39,7 +39,7 @@
 
 /* ── Inner container ── */
 .footer-container {
-  max-width: var(--container-max, 1280px);
+  max-width: var(--container-max, 1450px);
   margin-inline: auto;
   padding-inline: 1.25rem; /* px-5 */
   position: relative;
