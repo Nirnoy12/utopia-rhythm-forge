@@ -7,10 +7,10 @@ import { Menu, X, Volume2, VolumeX } from "lucide-react";
 const links = [
   { to: "/", label: "Home" },
   { to: "/aboututopia", label: "About" },
-  { to: "/coming-soon", label: "Event" },
+  { to: "/event", label: "Event" },
   { to: "/coming-soon", label: "Schedule" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/coming-soon", label: "Team" },
+  { to: "/teams", label: "Team" },
   { to: "/contact", label: "Contact" },
 ];
 

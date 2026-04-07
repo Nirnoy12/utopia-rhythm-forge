@@ -158,6 +158,7 @@
   padding-left: 0.75rem; /* pr-3 */
   border-right: 1px solid rgba(255,255,255,0.08);
   /* background-color: red; */
+ 
     width: fit-content !important;
 
 }
@@ -178,12 +179,15 @@
   padding-left: 1rem; /* pl-4 */
   /* background-color: green; */
   width: fit-content !important;
+  margin: auto !important;
+
   
 }
 
 @media (min-width: 1024px) {
   .footer-discover {
-    padding-left: 0;
+      text-align: center !important;
+    padding-left: 0 !important;
   }
 }
 
@@ -229,6 +233,12 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.625rem; /* space-y-2.5 */
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .footer-nav-list {
+ text-align: center;
+}
 }
 
 /* ── Nav links ── */

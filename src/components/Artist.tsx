@@ -9,7 +9,7 @@ interface ArtistProps {
   flag?: 0 | 1;
 }
 
-const Artist: React.FC<ArtistProps> = ({ flag = 1 }) => {
+const Artist: React.FC<ArtistProps> = ({ flag = 0 }) => {
   const imageStyle = flag === 1 ? { filter: "blur(25px)" } : {};
 
   const BlurOverlay = () => (
@@ -125,7 +125,7 @@ const Artist: React.FC<ArtistProps> = ({ flag = 1 }) => {
                 <ScrollReveal delay={0.1}>
                   <h2 className="font-extrabold text-[8vw] md:text-[3vw] font-serif leading-[0.95] tracking-[-0.02em]">
                     Our Day 1 Fest's Artist{" "}
-                    {/* <span className="text-primary italic font-extrabold">M-SONIC</span> in{" "} */}
+                    <span className="text-primary italic font-extrabold">M-SONIC</span> in{" "}
                     <span className="text-neon-pink italic font-extrabold">Utopia 2K26</span>.                  </h2>
                 </ScrollReveal>
               </div>
@@ -145,7 +145,7 @@ const Artist: React.FC<ArtistProps> = ({ flag = 1 }) => {
                 <ScrollReveal delay={0.1}>
                   <h2 className="font-extrabold text-[8vw] md:text-[3vw] font-serif leading-[0.95] tracking-[-0.02em]">
                     Our Day 2 Fest's Artist{" "}
-                    {/* <span className="text-primary italic font-extrabold">Somlata & The Aces</span> in{" "} */}
+                    <span className="text-primary italic font-extrabold">Somlata & The Aces</span> in{" "}
                     <span className="text-neon-pink italic font-extrabold">Utopia 2K26</span>.
                   </h2>
                 </ScrollReveal>

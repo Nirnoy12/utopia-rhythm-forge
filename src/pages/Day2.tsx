@@ -17,7 +17,7 @@ const artistsDay2 = [
     name: "Band Performances",
     role: "Live Music Showcase",
     time: "To Be Announced",
-    image: gallery1,
+    image: "https://i.pinimg.com/1200x/7b/c4/58/7bc45820e58272f3a2907d8ebbb7c5e9.jpg",
     registerLink: "",
     description: "Experience electrifying live performances by talented bands. Get ready for a musical vibe filled with energy, rhythm, and crowd interaction.\n\nVenue: Main Stage",
   },
@@ -33,7 +33,7 @@ const artistsDay2 = [
     name: "Magic Show",
     role: "Live Illusion Performance",
     time: "To Be Announced",
-    image: gallery1,
+    image: "https://i.pinimg.com/1200x/f6/b5/a9/f6b5a9d93c8fbc216e18e63567231919.jpg",
     registerLink: "",
     description: "Step into a world of illusion and wonder with a thrilling magic show. Expect mind-bending tricks and unforgettable moments.\n\nVenue: Main Stage",
   },
@@ -41,7 +41,7 @@ const artistsDay2 = [
     name: "Guest Artist Performance: Somlata and the Aces",
     role: "Live Concert",
     time: "To Be Announced",
-    image: gallery1,
+    image: "https://i.postimg.cc/XJP4X50m/Whats-App-Image-2026-04-08-at-12-20-48-AM.jpg",
     registerLink: "",
     description: "Enjoy a spectacular live concert by Somlata and the Aces, delivering soulful music and an unforgettable stage experience.\n\nVenue: Main Stage",
   }
@@ -302,9 +302,9 @@ const Day2 = () => {
               </div>
               
               <div className="w-full text-center flex flex-col items-center flex-grow">
-                <span className="text-[10px] md:text-xs font-sans font-bold tracking-[0.3em] uppercase mb-1 text-[#b64a2b]">
+                {/* <span className="text-[10px] md:text-xs font-sans font-bold tracking-[0.3em] uppercase mb-1 text-[#b64a2b]">
                   {artist.time}
-                </span>
+                </span> */}
                 <h2 className="text-2xl md:text-3xl font-sans font-black tracking-tight text-[#3b2a1f] mb-1">
                   {artist.name}
                 </h2>
