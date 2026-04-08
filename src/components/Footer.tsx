@@ -48,7 +48,7 @@ const Footer = () => {
               </div>
 
               {/* Discover */}
-              <div className="footer-discover">
+              <div className="footer-explore">
                 <h4 className="footer-heading">Discover</h4>
                 <ul className="footer-nav-list">
                   <li><Link className="footer-nav-link" to="/event">Events</Link></li>
