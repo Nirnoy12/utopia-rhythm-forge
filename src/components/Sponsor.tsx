@@ -1,7 +1,7 @@
 import React from "react";
 import ScrollReveal from "./ScrollReveal";
 
-const sponsor1 = "/assets/gdgc.png";
+const sponsor1 = "/assets/mckv.png";
 const sponsor2 = "/assets/ardent.jpg";
 
 const Sponsor = () => {
