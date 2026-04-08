@@ -3,13 +3,15 @@ import ScrollReveal from "./ScrollReveal";
 
 const sponsor1 = "/assets/mckv.png";
 const sponsor2 = "/assets/ardent.jpg";
+const sponsor3 ="/assets/hdfc.jpg";
+const sponsor4 = "/assets/zenway.png";
 
 const Sponsor = () => {
   const sponsors = [
     sponsor1,
     sponsor2,
-    sponsor1,
-    sponsor2
+    sponsor3,
+    sponsor4,
   ];
 
   // Duplicate for seamless loop
