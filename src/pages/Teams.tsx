@@ -202,7 +202,7 @@ const SHEETDB_API = "https://sheetdb.io/api/v1/ferqcc0q8yrad";
 const TEAM_CATEGORIES = [
   { title: "Lead Organiser",   section: "Lead Organiser" },
   { title: "Design & Website", section: "Design & Website" },
-  { title: "Organizers",       section: "Organizers" },
+  { title: "Organisers",       section: "Organisers" },
   { title: "Volunteers",       section: "Volunteer" },
 ];
 
