@@ -261,7 +261,7 @@ export default function Teams() {
     if (raw.includes("drive.google.com")) {
       const driveMatch = raw.match(/[-\w]{25,}/);
       if (driveMatch) {
-        return `https://drive.google.com/thumbnail?id=${driveMatch[0]}&sz=w200`;
+        return `https://drive.google.com/thumbnail?id=${driveMatch[0]}&sz=w800`;
       }
     }
 
