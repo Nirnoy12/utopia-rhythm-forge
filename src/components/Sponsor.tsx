@@ -5,6 +5,7 @@ const sponsor1 = "/assets/mckv.png";
 const sponsor2 = "/assets/ardent.jpg";
 const sponsor3 ="/assets/hdfc.jpg";
 const sponsor4 = "/assets/zenway.png";
+const sponsor5 = "/assets/jci.png";
 
 const Sponsor = () => {
   const sponsors = [
@@ -12,6 +13,7 @@ const Sponsor = () => {
     sponsor2,
     sponsor3,
     sponsor4,
+    sponsor5
   ];
 
   // Duplicate for seamless loop
