@@ -42,7 +42,7 @@ const Footer = () => {
                 <h4 className="footer-heading">Explore</h4>
                 <ul className="footer-nav-list">
                   <li><Link className="footer-nav-link" to="/about">About Us</Link></li>
-                  <li><Link className="footer-nav-link" to="/coming-soon">Schedule</Link></li>
+                  <li><Link className="footer-nav-link" to="/schedule">Schedule</Link></li>
                   <li><Link className="footer-nav-link" to="/contact">Contact Us</Link></li>
                 </ul>
               </div>

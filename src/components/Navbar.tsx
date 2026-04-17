@@ -8,7 +8,7 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/aboututopia", label: "About" },
   { to: "/event", label: "Event" },
-  { to: "/coming-soon", label: "Schedule" },
+  { to: "/schedule", label: "Schedule" },
   { to: "/gallery", label: "Gallery" },
   { to: "/teams", label: "Team" },
   { to: "/contact", label: "Contact" },
